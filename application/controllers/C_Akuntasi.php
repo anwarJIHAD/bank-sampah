@@ -43,7 +43,7 @@ class C_Akuntasi extends SDA_Controller
 		$this->load->view("pages/Akuntasi/akuntasi", $data);
 		$this->load->view('pages/layout/footer', $data);
 	}
-	
+
 	function fetch()
 	{
 		$output = '';
@@ -73,17 +73,17 @@ class C_Akuntasi extends SDA_Controller
 				}
 
 				$debit = '';
-				if ($us['jenis_'] == 'nasabah') {
-					$debit = '-';
-				} else {
+				if ($us['jenis_'] == 'pelapak') {
 					$debit = $us['harga_'];
+				} else {
+					$debit = '-';
 				}
 
 				$kredit = '';
-				if ($us['jenis_'] == 'nasabah') {
-					$kredit = $us['harga_'];
-				} else {
+				if ($us['jenis_'] == 'pelapak') {
 					$kredit = '-';
+				} else {
+					$kredit = $us['harga_'];
 				}
 
 				$output .= '
