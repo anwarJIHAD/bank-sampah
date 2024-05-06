@@ -52,7 +52,7 @@ gulpfile.tmp.*
 /temp
 
 # Assets
-**/assets/vendor
+# **/assets/vendor
 # **/static/vendor
 
 # HTML files
