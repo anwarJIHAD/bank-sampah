@@ -48,19 +48,60 @@ class Saldo_model extends CI_Model
 	}
 	function fetch_data($query)
 	{
-		$this->db->select('n.*, n.id_nasabah, COUNT(DISTINCT DATE(t.tanggal_penarikan)) as jumlah_penarikan,(SUM(COALESCE(tr.pendapatan, 0)) - SUM(COALESCE(t.nominal, 0))) as saldo'); // Menggunakan COUNT untuk menghitung jumlah transaksi
+		// Mempersiapkan subquery untuk menghitung total secara terpisah
+		$subquery_penarikan = $this->db->select('id_nasabah, COUNT(tanggal_penarikan) as jumlah_penarikan, SUM(nominal) as total_penarikan')
+			->from('penarikan_saldo')
+			->group_by('id_nasabah')
+			->get_compiled_select();
+
+		$subquery_transaksi = $this->db->select('id_nasabah, SUM(pendapatan) as total_pendapatan')
+			->from('transaksi')
+			->group_by('id_nasabah')
+			->get_compiled_select();
+
+		// Query utama
+		$this->db->select('n.*, n.id_nasabah, COALESCE(p.jumlah_penarikan, 0) as jumlah_penarikan, COALESCE(tr.total_pendapatan, 0) - COALESCE(p.total_penarikan, 0) as saldo');
 		$this->db->from('nasabah n');
-		$this->db->join('penarikan_saldo t', 'n.id_nasabah = t.id_nasabah', 'left');
-		$this->db->join('transaksi tr', 'n.id_nasabah = tr.id_nasabah', 'left');
+		$this->db->join("($subquery_penarikan) p", 'n.id_nasabah = p.id_nasabah', 'left');
+		$this->db->join("($subquery_transaksi) tr", 'n.id_nasabah = tr.id_nasabah', 'left');
 
-		// Mengubah inner join menjadi left join
-		$this->db->group_by('n.id_nasabah'); // Group by harus berdasarkan id_nasabah di tabel nasabah
+		$this->db->group_by('n.id_nasabah'); // Group by berdasarkan id nasabah
 
+		// Memfilter berdasarkan query jika ada
 		if ($query != '') {
-			$this->db->like('n.nama', $query); // Pastikan pencarian dilakukan pada kolom yang tepat
+			$this->db->like('n.nama', $query);
 		}
 
-		$this->db->order_by('n.date_create', 'DESC'); // Pastikan pengurutan dilakukan pada kolom yang tepat
+		$this->db->order_by('n.date_create', 'DESC'); // Mengurutkan berdasarkan tanggal pembuatan
+
 		return $this->db->get();
+	}
+
+
+	function fetch_data_detail($query, $id)
+	{
+		$this->db->select('n.*, s.*'); // Menggunakan COUNT untuk menghitung jumlah transaksi
+		$this->db->from('nasabah n');
+		$this->db->join('penarikan_saldo s', 'n.id_nasabah = s.id_nasabah');
+		if ($id != '') {
+			$this->db->where('s.id_nasabah', $id);
+		}
+		// Mengubah inner join menjadi left join
+		$this->db->group_by('s.tanggal_penarikan'); // Group by harus berdasarkan id_nasabah di tabel nasabah
+
+		if ($query != '') {
+			$this->db->like('s.nominal', $query);
+			$this->db->like('s.keterangan', $query);
+		}
+
+		$this->db->order_by('s.date_create', 'DESC'); // Pastikan pengurutan dilakukan pada kolom yang tepat
+		$result = $this->db->get();
+		if (empty($result)) {
+			return [];
+		}
+
+		return $result;
+
+
 	}
 }

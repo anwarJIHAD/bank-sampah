@@ -60,11 +60,14 @@
 			if (jenis == 'nasabah') {
 				href = "<?= base_url('C_Nasabah/edit/') ?>" + id; // Mengassign href tanpa let di sini
 			} else if (jenis == 'sampah') {
-				href = "<?= base_url('C_sampah/edit/') ?>" + id;
+				href = "<?= base_url('C_Sampah/edit/') ?>" + id;
 			} else if (jenis == 'pelapak') {
 				href = "<?= base_url('C_Penjualan/edit_pelapak/') ?>" + id;
 			} else if (jenis == 'Operasional') {
 				href = "<?= base_url('C_Operasional/edit/') ?>" + id;
+			}
+			else if (jenis == 'saldo') {
+				href = "<?= base_url('C_Saldo/edit/') ?>" + id;
 			} else {
 				// Mengassign href tanpa let di sini
 			}
@@ -87,16 +90,18 @@
 			// console.log(jenis);
 			let href; // Mendeklarasikan href di luar blok if dan else
 			if (jenis == 'nasabah') {
-				href = "C_Nasabah/hapus/" + id; // Mengassign href tanpa let di sini
+				href = "<?= base_url('C_Nasabah/hapus/') ?>" + id;
 			} else if (jenis == 'sampah') {
-				href = "C_Sampah/hapus/" + id;
+				href = "<?= base_url('C_Sampah/hapus/') ?>" + id;
 			}
 			else if (jenis == 'pelapak') {
-				href = "C_Penjualan/hapus_pelapak/" + id;
+				href = "<?= base_url('C_Penjualan/hapus_pelapak/') ?>" + id;
 			} else if (jenis == 'Operasional') {
-				href = "C_Operasional/hapus/" + id;
+				href = "<?= base_url('C_Operasional/hapus/') ?>" + id;
+			} else if (jenis == 'saldo') {
+				href = "<?= base_url('C_Nasabah/hapus/') ?>" + id;
 			} else {
-				// Mengassign href tanpa let di sini
+				href = "<?= base_url('C_Saldo/hapus/') ?>" + id + '/' + jenis;
 			}
 
 			Swal.fire({
