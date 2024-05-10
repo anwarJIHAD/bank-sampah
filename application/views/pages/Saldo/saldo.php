@@ -12,10 +12,10 @@
 						id="posSearch" placeholder="search..">
 				</div>
 
-				<a href="<?= base_url('C_Saldo/tambah') ?>" class="btn btn-primary">
+				<!-- <a href="<?= base_url('C_Saldo/tambah') ?>" class="btn btn-primary">
 					<i class="menu-icon tf-icons mdi mdi-plus"></i>
 					<div style="font-size:10px;">Tambah Penarikan</div>
-				</a>
+				</a> -->
 
 			</div>
 

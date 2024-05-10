@@ -99,7 +99,7 @@
 			} else if (jenis == 'Operasional') {
 				href = "<?= base_url('C_Operasional/hapus/') ?>" + id;
 			} else if (jenis == 'saldo') {
-				href = "<?= base_url('C_Nasabah/hapus/') ?>" + id;
+				// href = "<?= base_url('C_Nasabah/hapus/') ?>" + id;
 			} else {
 				href = "<?= base_url('C_Saldo/hapus/') ?>" + id + '/' + jenis;
 			}

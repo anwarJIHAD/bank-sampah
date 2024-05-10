@@ -105,7 +105,9 @@ class C_Penjualan extends SDA_Controller
 	}
 	public function hapus_pelapak($id)
 	{
-		if ($this->Penjualan_model->delete($id)) {
+		var_dump($id);
+		if ($this->Pelapak_model->delete($id)) {
+			$this->Penjualan_model->delete_pelapak($id);
 			$this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible" role="alert">
 			Data Transaksi Berhasil dihapus!!
 			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -200,7 +202,7 @@ class C_Penjualan extends SDA_Controller
 				'berat_sampah' => $this->input->post('berat'),
 				'harga/kg' => $this->input->post('harga/kg'),
 				'pendapatan' => (int) $this->input->post('pendapatan'),
-			];		
+			];
 			$this->Penjualan_model->update(['id_transaksi_p' => $id], $data);
 			$id_pelapak = $this->input->post('id_pelapak');
 			$tgl = $this->input->post('tgl');

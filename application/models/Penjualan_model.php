@@ -72,6 +72,12 @@ class Penjualan_model extends CI_Model
 		$this->db->delete($this->table);
 		return $this->db->affected_rows();
 	}
+	public function delete_pelapak($id)
+	{
+		$this->db->where('id_pelapak', $id);
+		$this->db->delete($this->table);
+		return $this->db->affected_rows();
+	}
 	public function delete2($tgl, $id_pelapak)
 	{
 		$decodedString = urldecode($tgl);
