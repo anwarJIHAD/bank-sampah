@@ -22,13 +22,13 @@
 							<label for="basic-default-company">Harga Nasabah</label>
 							<?= form_error('harga_nasabah', '<small class="text-danger pl-3">', '</small>'); ?>
 						</div>
-						<div class="form-floating form-floating-outline mb-4">
+						<!-- <div class="form-floating form-floating-outline mb-4">
 							<input type="text" id="basic-default-phone" name="harga_unit"
 								class="form-control phone-mask" value="<?= set_value('harga_unit'); ?>"
 								placeholder="Masukkan Nomor Telp" />
 							<label for="basic-default-phone">Harga Unit</label>
 							<?= form_error('harga_unit', '<small class="text-danger pl-3">', '</small>'); ?>
-						</div>
+						</div> -->
 						
 						<button type="submit" class="btn btn-primary">Simpan</button>
 					</form>

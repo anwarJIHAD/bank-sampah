@@ -36,10 +36,10 @@ class C_Sampah extends SDA_Controller
 			'required' => 'harga Nasabah Wajib di isi',
 			'numeric' => 'harga Nasabah hanya boleh berisi angka'
 		]);
-		$this->form_validation->set_rules('harga_unit', 'harga_unit', 'required|trim|numeric', [
-			'required' => 'harga unit Wajib di isi',
-			'numeric' => 'harga unit hanya boleh berisi angka'
-		]);
+		// $this->form_validation->set_rules('harga_unit', 'harga_unit', 'required|trim|numeric', [
+		// 	'required' => 'harga unit Wajib di isi',
+		// 	'numeric' => 'harga unit hanya boleh berisi angka'
+		// ]);
 
 
 		if ($this->form_validation->run() == false) {
@@ -50,7 +50,7 @@ class C_Sampah extends SDA_Controller
 			$data = [
 				'kategori' => $this->input->post('kategori'),
 				'harga_nasabah' => $this->input->post('harga_nasabah'),
-				'harga_unit' => $this->input->post('harga_unit'),
+				// 'harga_unit' => $this->input->post('harga_unit'),
 			];
 			if ($this->Sampah_model->insert($data)) {
 				$this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible" role="alert">
@@ -85,10 +85,10 @@ class C_Sampah extends SDA_Controller
 			'required' => 'harga Nasabah Wajib di isi',
 			'numeric' => 'harga Nasabah hanya boleh berisi angka'
 		]);
-		$this->form_validation->set_rules('harga_unit', 'harga_unit', 'required|trim|numeric', [
-			'required' => 'harga unit Wajib di isi',
-			'numeric' => 'harga unit hanya boleh berisi angka'
-		]);
+		// $this->form_validation->set_rules('harga_unit', 'harga_unit', 'required|trim|numeric', [
+		// 	'required' => 'harga unit Wajib di isi',
+		// 	'numeric' => 'harga unit hanya boleh berisi angka'
+		// ]);
 
 
 		if ($this->form_validation->run() == false) {
@@ -99,7 +99,7 @@ class C_Sampah extends SDA_Controller
 			$data = [
 				'kategori' => $this->input->post('kategori'),
 				'harga_nasabah' => $this->input->post('harga_nasabah'),
-				'harga_unit' => $this->input->post('harga_unit'),
+				// 'harga_unit' => $this->input->post('harga_unit'),
 			];
 			$this->Sampah_model->update(['id_sampah' => $id], $data);
 
@@ -144,7 +144,7 @@ class C_Sampah extends SDA_Controller
 				</td>
 				<td>' . $us['kategori'] . '</td>
 				<td>' . $us['harga_nasabah'] . '</td>
-				<td>' . $us['harga_unit'] . '</td>
+				<!--<td>' . $us['harga_unit'] . '</td>-->
 				<td class="text-center">
 					<button style="padding: 0; border: none; background: none;"><a
 							onclick="edit(' . $us['id_sampah'] . ', ' . '\'sampah\'' . ')"
