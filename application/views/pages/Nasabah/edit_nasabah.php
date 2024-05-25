@@ -30,8 +30,8 @@
 						</div>
 						<div class="form-floating form-floating-outline mb-4">
 							<input id="basic-default-message" value="<?= $Nasabah['saldo']; ?> "class="form-control"
-								name="saldo" placeholder="Masukkan Saldo Nasabah" style="height: 60px" />
-							<label for="basic-default-message">Saldo</label>
+								name="saldo" placeholder="Masukkan Saldo Awal Nasabah" style="height: 60px" />
+							<label for="basic-default-message">Saldo Awal</label>
 							<?= form_error('saldo', '<small class="text-danger pl-3">', '</small>'); ?>
 						</div>
 						<button type="submit" class="btn btn-primary">Simpan</button>

@@ -29,10 +29,10 @@ class C_Akuntasi extends SDA_Controller
 		foreach ($data1->result_array() as $us) {
 			$debit = 0;
 			$kredit = 0;
-			if ($us['jenis_'] == 'nasabah') {
-				$kredit = $us['harga_'];
-			} else {
+			if ($us['jenis_'] == 'pelapak') {
 				$debit = $us['harga_'];
+			} else {
+				$kredit = $us['harga_'];
 			}
 			$totalKredit += $kredit;
 			$totalDebit += $debit;

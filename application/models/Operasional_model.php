@@ -26,6 +26,13 @@ class Operasional_model extends CI_Model
 
 		return $result;
 	}
+	public function sumPendapatan()
+	{
+		$this->db->select_sum('harga');  // Menggunakan select_sum untuk menghitung total pendapatan
+		$this->db->from($this->table);             // Menentukan tabel yang diquery
+		$query = $this->db->get();
+		return $query->row()->harga;          // Melakukan query
+	}
 	public function tampil($NIP)
 	{
 		$this->db->select('p.*,u.nama');

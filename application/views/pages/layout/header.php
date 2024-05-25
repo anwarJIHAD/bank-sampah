@@ -15,6 +15,11 @@
 		body {
 			padding-top: 20px;
 		}
+
+		.custom-line-height {
+			line-height: 1.3;
+			/* Atur sesuai kebutuhan */
+		}
 	</style>
 	<!-- Favicon -->
 	<link rel="icon" type="image/x-icon" href="<?= base_url('assets/') ?>assets/img/favicon/favicon.ico" />

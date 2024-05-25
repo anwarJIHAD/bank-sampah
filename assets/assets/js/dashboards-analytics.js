@@ -29,8 +29,8 @@
       },
       series: [
         {
-          name: 'Sales',
-          data: [32, 55, 45, 75, 55, 35, 70]
+          name: 'Jumlah Kunjungan',
+          data: [32, 55, 45, 75, 55, 35, 70, 45, 75, 55, 35, 70]
         }
       ],
       colors: [chartBgColor],
@@ -70,7 +70,7 @@
         }
       },
       xaxis: {
-        categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        categories: ['January', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustur', 'September', 'Oktober', 'November', 'Desember'],
         tickPlacement: 'on',
         labels: {
           show: false
@@ -84,12 +84,12 @@
       },
       yaxis: {
         min: 0,
-        max: 90,
+        max: 100,
         show: true,
-        tickAmount: 3,
+        tickAmount: 4,
         labels: {
           formatter: function (val) {
-            return parseInt(val) + 'K';
+            return parseInt(val) + ' x';
           },
           style: {
             fontSize: '0.75rem',
