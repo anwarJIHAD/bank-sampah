@@ -83,10 +83,6 @@ class C_Transaksi extends SDA_Controller
 			</div>');
 				redirect('C_Transaksi/detail/' . $id_nasabah);
 			}
-
-
-
-
 		}
 	}
 	public function edit($id)
