@@ -60,7 +60,7 @@ class Saldo_model extends CI_Model
 			->get_compiled_select();
 
 		// Query utama
-		$this->db->select('n.*, n.id_nasabah, COALESCE(p.jumlah_penarikan, 0) as jumlah_penarikan, COALESCE(tr.total_pendapatan, 0) - COALESCE(p.total_penarikan, 0) as saldo');
+		$this->db->select('n.*, n.id_nasabah, COALESCE(p.jumlah_penarikan, 0) as jumlah_penarikan, COALESCE(tr.total_pendapatan, 0) - COALESCE(p.total_penarikan, 0)+ COALESCE(n.saldo, 0) as saldo');
 		$this->db->from('nasabah n');
 		$this->db->join("($subquery_penarikan) p", 'n.id_nasabah = p.id_nasabah', 'left');
 		$this->db->join("($subquery_transaksi) tr", 'n.id_nasabah = tr.id_nasabah', 'left');

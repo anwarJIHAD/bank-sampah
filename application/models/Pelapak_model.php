@@ -16,6 +16,7 @@ class Pelapak_model extends CI_Model
 		$this->db->order_by('date_create', 'desc');
 		return $query->result_array();
 	}
+	
 	public function tampil($NIP)
 	{
 		$this->db->select('p.*,u.nama');

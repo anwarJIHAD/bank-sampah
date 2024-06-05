@@ -16,6 +16,15 @@ class Nasabah_model extends CI_Model
 		$this->db->order_by('date_create', 'desc');
 		return $query->result_array();
 	}
+
+	public function get5()
+	{
+		$this->db->from($this->table);
+		$this->db->order_by('date_create', 'desc');
+		$this->db->limit(5);  // Limit to 5 records
+		$query = $this->db->get();
+		return $query->result_array();	
+	}
 	public function tampil($NIP)
 	{
 		$this->db->select('p.*,u.nama');

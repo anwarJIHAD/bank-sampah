@@ -133,13 +133,12 @@ class C_Saldo extends SDA_Controller
 				</td>
 				<td>' . $us['nama'] . '</td>
 				<td>' . $us['jumlah_penarikan'] . '</td>
-				<td>' . $us['saldo'] . '</td>
+				<td><span class="badge rounded-pill bg-label-primary me-1">RP.' . $us['saldo'] . '</span></td>
 				<td class="text-center">
 				<a href="' . base_url('C_Saldo/detail/' . $us['id_nasabah'] . '') . '" class="btn btn-sm btn-outline-primary text">
 				<div style="color:#9055fd; font-size:10px;">Detail</div>
 			</a>
 				</td>
-				
 			</tr>
 ';
 				$i += 1;
@@ -149,7 +148,6 @@ class C_Saldo extends SDA_Controller
 							<td colspan="5">No Data Found</td>
 						</tr>';
 		}
-
 		echo $output;
 	}
 	public function detail($id_nasabah)
@@ -162,7 +160,6 @@ class C_Saldo extends SDA_Controller
 		$this->load->view("pages/Saldo/detail_saldo", $data);
 		$this->load->view('pages/layout/footer', $data);
 	}
-
 	function fetch_detail($id)
 	{
 		$output = '';

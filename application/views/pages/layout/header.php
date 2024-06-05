@@ -296,6 +296,13 @@
 						</a>
 					</li>
 
+					<!-- Dashboard -->
+					<li class="menu-item Open">
+						<a href="<?= base_url('C_DebitKredit/') ?>" class="menu-link">
+							<i class="menu-icon tf-icons mdi mdi-chart-scatter-plot-hexbin"></i>
+							<div data-i18n="Icons">Debit Kredit Nasabah</div>
+						</a>
+					</li>
 
 					<!-- Dashboard -->
 					<li class="menu-item Open">
@@ -305,9 +312,13 @@
 						</a>
 					</li>
 
-
+					<li class="menu-item Open">
+						<a href="<?= base_url('C_Laporan/') ?>" class="menu-link">
+							<i class="menu-icon tf-icons mdi mdi-vector-curve"></i>
+							<div data-i18n="Icons">Export Laporan</div>
+						</a>
+					</li>
 					<!-- Forms & Tables -->
-
 					<!-- Forms -->
 					<!-- <li class="menu-item">
 						<a href="javascript:void(0);" class="menu-link menu-toggle">
