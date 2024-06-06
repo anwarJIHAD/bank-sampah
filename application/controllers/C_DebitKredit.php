@@ -38,7 +38,7 @@ class C_DebitKredit extends SDA_Controller
 			foreach ($data1->result_array() as $us) {
 				$debit = 0;
 				$kredit = 0;
-				if ($us['jenis_'] == 'pelapak') {
+				if ($us['jenis_'] == 'nasabah') {
 					$debit = $us['harga_'];
 				} else {
 					$kredit = $us['harga_'];
@@ -97,6 +97,7 @@ class C_DebitKredit extends SDA_Controller
 			$output .= '<tr>
 							<td colspan="5">No Data Found</td>
 						</tr>';
+					
 		}
 
 		echo $output;
@@ -129,14 +130,14 @@ class C_DebitKredit extends SDA_Controller
 				}
 
 				$debit = '';
-				if ($us['jenis_'] == 'pelapak') {
+				if ($us['jenis_'] == 'nasabah') {
 					$debit = $us['harga_'];
 				} else {
 					$debit = '-';
 				}
 
 				$kredit = '';
-				if ($us['jenis_'] == 'pelapak') {
+				if ($us['jenis_'] == 'nasabah') {
 					$kredit = '-';
 				} else {
 					$kredit = $us['harga_'];

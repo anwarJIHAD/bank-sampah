@@ -23,7 +23,7 @@ class Nasabah_model extends CI_Model
 		$this->db->order_by('date_create', 'desc');
 		$this->db->limit(5);  // Limit to 5 records
 		$query = $this->db->get();
-		return $query->result_array();	
+		return $query->result_array();
 	}
 	public function tampil($NIP)
 	{
@@ -95,7 +95,7 @@ class Nasabah_model extends CI_Model
 			$this->db->or_like('saldo', $query);
 
 		}
-		$this->db->order_by('nama', 'DESC');
+		$this->db->order_by('date_create', 'DESC');
 		return $this->db->get();
 
 

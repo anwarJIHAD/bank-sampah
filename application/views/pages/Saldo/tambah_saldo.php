@@ -13,7 +13,7 @@
 				<input type="hidden" name="id_nasabah" id="" value="<?= $id_nasabah ?>">
 						<div class="form-floating form-floating-outline mb-4">
 							<input type="datetime-local" class="form-control" name="tanggal" id="basic-default-fullname"
-								value="<?= set_value('tanggal'); ?>" placeholder="JMasukkan tanggal Lengkap" />
+								value="<?= set_value('tanggal'); ?>" placeholder="Masukkan tanggal Lengkap" />
 							<label for="basic-default-fullname">Tanggil Penarikan</label>
 							<?= form_error('tanggal', '<small class="text-danger pl-3">', '</small>'); ?>
 						</div>

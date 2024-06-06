@@ -17,6 +17,19 @@ class Dashboard_model extends CI_Model
     {
         return $this->db->count_all('sampah');
     }
+	public function jumlah_transaksi_nasabah()
+    {
+        return $this->db->count_all('transaksi');
+    }
+	public function jumlah_transaksi_pelapak()
+    {
+        return $this->db->count_all('transaksi_pelapak');
+    }
+	public function jumlah_pelapak()
+    {
+        return $this->db->count_all('pelapak');
+    }
+	
 	public function getTransaksiNasabah($tahun, $month)
 	{
 		$this->db->select('month(tanggal_transaksi)');

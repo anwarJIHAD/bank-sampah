@@ -19,7 +19,7 @@
 						</div>
 						<div class="form-floating form-floating-outline mb-4">
 							<input type="datetime-local" class="form-control" name="tgl" id="basic-default-fullname"
-								value="<?= set_value('tgl'); ?>" placeholder="JMasukkan tgl Lengkap" />
+								value="<?= set_value('tgl'); ?>" placeholder="Masukkan tgl Lengkap" />
 							<label for="basic-default-fullname">Tanggal Transaksi</label>
 							<?= form_error('tgl', '<small class="text-danger pl-3">', '</small>'); ?>
 						</div>

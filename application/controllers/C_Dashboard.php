@@ -47,6 +47,9 @@ class C_Dashboard extends SDA_Controller
 		$data['top5_Pelapak'] = $this->Penjualan_model->get5();
 		
 		$data['sampah'] = $this->Dashboard_model->jumlah_sampah();
+		$data['transaksi_nasabah'] = $this->Dashboard_model->jumlah_transaksi_nasabah();
+		$data['transaksi_pelapak'] = $this->Dashboard_model->jumlah_transaksi_pelapak();
+		$data['jumlah_pelapak'] = $this->Dashboard_model->jumlah_pelapak();
 		$data['judul'] = "Halaman Dashboard";
 		$data['judul'] = "Halaman Dashboard";
 		$tahun_sekarang = date('Y');

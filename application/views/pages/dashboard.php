@@ -149,7 +149,6 @@
 		<!-- Four Cards -->
 		<div class="col-xl-4 col-md-6">
 			<div class="row gy-4">
-
 				<div class="col-sm-6">
 					<div class="card h-100">
 
@@ -172,8 +171,39 @@
 						</div>
 					</div>
 				</div>
+				<div class="col-sm-6">
+					<div class="card h-100">
 
+						<div class="card-body mt-mg-1">
+							<h6 class="mb-2">Jumlah pelapak</h6>
+							<div class="d-flex flex-wrap align-items-center justify-content-center p-5">
+								<h4 class="mb-0 me-2"><?= $jumlah_pelapak ?></h4>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="card h-100">
 
+						<div class="card-body mt-mg-1">
+							<h6 class="mb-2">Jumlah Transaksi Nasabah</h6>
+							<div class="d-flex flex-wrap align-items-center justify-content-center p-5">
+								<h4 class="mb-0 me-2"><?= $transaksi_nasabah ?></h4>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- <div class="col-sm-6">
+					<div class="card h-100">
+
+						<div class="card-body mt-mg-1">
+							<h6 class="mb-2">Jumlah Penjualan ke- Pelapak</h6>
+							<div class="d-flex flex-wrap align-items-center justify-content-center p-5">
+								<h4 class="mb-0 me-2"><?= $transaksi_pelapak ?></h4>
+							</div>
+						</div>
+					</div>
+				</div> -->
 				<!-- <div class="col-sm-6">
 					<div class="card h-100">
 						<div class="card-header pb-0">

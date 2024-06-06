@@ -12,7 +12,7 @@
 					<form action="" method="POST" enctype="multipart/form-data">
 						<div class="form-floating form-floating-outline mb-4">
 							<input type="text" class="form-control" name="kategori" id="basic-default-fullname"
-								value="<?= $Sampah['kategori']; ?>" placeholder="JMasukkan kategori Lengkap" />
+								value="<?= $Sampah['kategori']; ?>" placeholder="Masukkan kategori Lengkap" />
 							<label for="basic-default-fullname">kategori Sampah</label>
 							<?= form_error('kategori', '<small class="text-danger pl-3">', '</small>'); ?>
 						</div>
