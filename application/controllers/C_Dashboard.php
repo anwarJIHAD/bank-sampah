@@ -38,14 +38,12 @@ class C_Dashboard extends SDA_Controller
 			$totalDebit += $debit;
 		}
 		$data['operasional'] = $this->Operasional_model->sumPendapatan();
-		// var_dump($data['operasional']);
-		// die;
+		
 		$data['debit'] = $totalDebit;
 		$data['kredit'] = $totalKredit;
 		$data['nasabah'] = $this->Dashboard_model->jumlah_nasabah();
 		$data['top5_nasabah'] = $this->Transaksi_model->get5();
 		$data['top5_Pelapak'] = $this->Penjualan_model->get5();
-		
 		$data['sampah'] = $this->Dashboard_model->jumlah_sampah();
 		$data['transaksi_nasabah'] = $this->Dashboard_model->jumlah_transaksi_nasabah();
 		$data['transaksi_pelapak'] = $this->Dashboard_model->jumlah_transaksi_pelapak();

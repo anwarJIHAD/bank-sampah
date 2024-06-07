@@ -335,7 +335,7 @@
 		<!--/ Data Tables -->
 
 		<!-- 5 Transaksi Pelapak terakhir -->
-		<div class="col-12">
+		<!-- <div class="col-12">
 			<div class="card">
 				<div class="card-header d-flex align-items-center justify-content-between">
 					<h5 class="card-title m-0 me-2">5 History Transaski Ke- Pelapak Terakhir</h5>
@@ -386,7 +386,7 @@
 					</table>
 				</div>
 			</div>
-		</div>
+		</div> -->
 		<!--/ Data Tables -->
 	</div>
 </div>

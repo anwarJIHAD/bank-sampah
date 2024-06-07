@@ -18,11 +18,25 @@ class Transaksi_model extends CI_Model
 	}
 	public function get5()
 	{
-		$this->db->select('p.*, t.*,s.*'); // Menggunakan COUNT untuk menghitung jumlah transaksi
+		$this->db->select('p.*, t.*,s.*'); 
 		$this->db->from('transaksi t');
 		$this->db->join('nasabah p', 'p.id_nasabah = t.id_nasabah', 'left');
 		$this->db->join('sampah s', 's.id_sampah = t.id_sampah');
 		$this->db->limit(5);  // Limit to 5 records
+		$this->db->order_by('t.date_create', 'DESC'); // Pastikan pengurutan dilakukan pada kolom yang tepat
+		$result = $this->db->get();
+
+		if (empty($result)) {
+			return [];
+		}
+		return $result->result_array();
+	}
+	public function Laporan_all()
+	{
+		$this->db->select('p.nama,s.kategori,t.*'); // Menggunakan COUNT untuk menghitung jumlah transaksi
+		$this->db->from('transaksi t');
+		$this->db->join('nasabah p', 'p.id_nasabah = t.id_nasabah', 'left');
+		$this->db->join('sampah s', 's.id_sampah = t.id_sampah');
 		$this->db->order_by('t.date_create', 'DESC'); // Pastikan pengurutan dilakukan pada kolom yang tepat
 		$result = $this->db->get();
 

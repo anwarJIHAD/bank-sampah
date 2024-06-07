@@ -11,17 +11,16 @@
 require_once __DIR__ . '/lib/html5lib/Parser.php';
 
 // Sabberworm
-spl_autoload_register(function($class)
-{
-    if (strpos($class, 'Sabberworm') !== false) {
-        $file = str_replace('\\', DIRECTORY_SEPARATOR, $class);
-        $file = realpath(__DIR__ . '/lib/php-css-parser/lib/' . (empty($file) ? '' : DIRECTORY_SEPARATOR) . $file . '.php');
-        if (file_exists($file)) {
-            require_once $file;
-            return true;
-        }
+spl_autoload_register(function ($class) {
+  if (strpos($class, 'Sabberworm') !== false) {
+    $file = str_replace('\\', DIRECTORY_SEPARATOR, $class);
+    $file = realpath(__DIR__ . '/lib/php-css-parser/lib/' . (empty($file) ? '' : DIRECTORY_SEPARATOR) . $file . '.php');
+    if (file_exists($file)) {
+      require_once $file;
+      return true;
     }
-    return false;
+  }
+  return false;
 });
 
 // php-font-lib
@@ -37,3 +36,4 @@ require_once __DIR__ . '/lib/php-svg-lib/src/autoload.php';
 require_once __DIR__ . '/src/Autoloader.php';
 
 Dompdf\Autoloader::register();
+require_once __DIR__ . '/vendor/autoload.php';

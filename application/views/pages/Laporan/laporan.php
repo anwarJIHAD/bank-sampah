@@ -40,7 +40,7 @@
 									</option>
 								<?php endforeach; ?>
 							</select>
-							<label for="nama_nasabah">Nasabah/Pelapak</label>
+							<label for="nama_nasabah">Nasabah</label>
 						</div>
 						<div class="form-floating form-floating-outline mb-4">
 							<select name="rentang_waktu" id="rentang_waktu" class="form-control"
@@ -60,14 +60,12 @@
 								<input type="date" class="form-control" name="tanggal_mulai" id="basic-default-company"
 									value="<?= set_value('tanggal_mulai'); ?>" placeholder="Masukkan tanggal_mulai" />
 								<label for="basic-default-company">Tanggal Mulai</label>
-								<?= form_error('tanggal_mulai', '<small class="text-danger pl-3">', '</small>'); ?>
 							</div>
 							<div class="form-floating form-floating-outline mb-4">
 								<input type="date" id="basic-default-phone" name="tanggal_selesai"
 									class="form-control phone-mask" value="<?= set_value('tanggal_selesai'); ?>"
 									placeholder="Masukkan tanggal selesai" />
 								<label for="basic-default-phone">Tanggal Selesai</label>
-								<?= form_error('tanggal_selesai', '<small class="text-danger pl-3">', '</small>'); ?>
 							</div>
 						</div>
 
@@ -96,7 +94,7 @@
 	$(document).ready(function () {
 		$("#jenis_data").change(function () {
 			var selectedValue = $(this).val();
-			if (selectedValue === 'Transaksi Nasabah' || selectedValue === 'Transaksi Penjualan' || selectedValue === 'Debit Kredit Nasabah') {
+			if (selectedValue === 'Transaksi Nasabah' || selectedValue === 'Debit Kredit Nasabah') {
 				$("#dropdown_nasabah").show();
 			} else {
 				$("#dropdown_nasabah").hide();
