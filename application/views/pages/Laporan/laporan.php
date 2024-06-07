@@ -69,7 +69,7 @@
 							</div>
 						</div>
 
-						<div class="form-floating form-floating-outline mb-4">
+						<!-- <div class="form-floating form-floating-outline mb-4">
 							<select name="format" id="format" class="form-control" placeholder="format">
 								<option value="">---Pilih Format---</option>
 								<option value="PDF">PDF</option>
@@ -77,8 +77,8 @@
 							</select>
 							<label for="basic-default-message">format</label>
 							<?= form_error('format', '<small class="text-danger pl-3">', '</small>'); ?>
-						</div>
-						<button type="submit" class="btn btn-warning">EXPORT</button>
+						</div> -->
+						<button type="submit" class="btn btn-warning">EXPORT PDF</button>
 					</form>
 				</div>
 			</div>
