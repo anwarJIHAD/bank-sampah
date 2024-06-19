@@ -86,7 +86,7 @@ class C_DebitKredit extends SDA_Controller
 				<td>' . $us['nama'] . '</td>
 				<td class="text-center">
 				<a href="' . base_url('C_Debitkredit/detail/' . $us['id_nasabah'] . '') . '" class="btn btn-sm btn-outline-primary text">
-					<div style="color:#9055fd; font-size:10px;">Lihat Debit & Kredit</div>
+					<div style="color:#55dbfd; font-size:10px;">Lihat Debit & Kredit</div>
 				</a>
 				</td>
 			</tr>

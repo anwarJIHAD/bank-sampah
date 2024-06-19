@@ -208,8 +208,8 @@
 									</div>
 
 
-									<a onclick="tambah_baris()" class="custom-li btn btn-success">
-										<i class="menu-icon tf-icons mdi mdi-plus " style='color:white;'></i>
+									<a onclick="hapus_baris()" class="custom-li btn btn-danger">
+										<i class="menu-icon tf-icons mdi mdi-minus action-delete_baris" style='color:white;'></i>
 									</a>
 
 									<!-- <button><i class="icon-plus-sign-alt"></i>tambah baris</button> -->

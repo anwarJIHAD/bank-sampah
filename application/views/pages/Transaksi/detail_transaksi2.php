@@ -39,7 +39,7 @@
 						<th>No</th>
 						<th>Jenis Sampah</th>
 						<th>harga/kg</th>
-						<th>berat</th>
+						<th>berat(kg)</th>
 						<th>Total Pendapatan</th>
 						<th class="text-center">Aksi</th>
 					</tr>

@@ -40,13 +40,16 @@
 
 		<!-- Transactions -->
 		<div class="col-lg-12">
-			<div class="card">
+			<div class="card datang">
 
 				<div class="card-body">
 					<div class="row justify-content-center">
 						<div class="col-md-8 text-center">
-							<h3 class="fw-light custom-line-height">Selamat Datang di Sistem Informasi Bank Sampah
-								<br>Raziq Damai Bersih Kelurahan Lembah Damai
+							<h2 style="color:#fff;">
+								SELAMAT DATANG
+							</h2>
+							<h3 class="" style="color:#fff;"> Sistem Informasi Bank Sampah Raziq Damai Bersih
+								<br>Kelurahan Lembah Damai
 							</h3>
 						</div>
 					</div>
@@ -55,6 +58,77 @@
 		</div>
 
 		<!--/ Transactions -->
+		<div class="col-xl-12 col-md-12">
+			<div class="row gy-4">
+				<div class="col-sm-3">
+					<div class="card h-100">
+
+						<div class="card-body mt-mg-1">
+							<h6 class="mb-2">Jumlah Nasabah</h6>
+							<div class="d-flex flex-wrap align-items-center justify-content-center p-5">
+								<h4 class="mb-0 me-2"><?= $nasabah ?></h4>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-3">
+					<div class="card h-100">
+
+						<div class="card-body mt-mg-1">
+							<h6 class="mb-2">Jumlah Kategori Sampah</h6>
+							<div class="d-flex flex-wrap align-items-center justify-content-center p-5">
+								<h4 class="mb-0 me-2"><?= $sampah ?></h4>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-3">
+					<div class="card h-100">
+
+						<div class="card-body mt-mg-1">
+							<h6 class="mb-2">Jumlah pelapak</h6>
+							<div class="d-flex flex-wrap align-items-center justify-content-center p-5">
+								<h4 class="mb-0 me-2"><?= $jumlah_pelapak ?></h4>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-3">
+					<div class="card h-100">
+
+						<div class="card-body mt-mg-1">
+							<h6 class="mb-2">Jumlah Transaksi Nasabah</h6>
+							<div class="d-flex flex-wrap align-items-center justify-content-center p-5">
+								<h4 class="mb-0 me-2"><?= $transaksi_nasabah ?></h4>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- <div class="col-sm-6">
+					<div class="card h-100">
+
+						<div class="card-body mt-mg-1">
+							<h6 class="mb-2">Jumlah Penjualan ke- Pelapak</h6>
+							<div class="d-flex flex-wrap align-items-center justify-content-center p-5">
+								<h4 class="mb-0 me-2"><?= $transaksi_pelapak ?></h4>
+							</div>
+						</div>
+					</div>
+				</div> -->
+				<!-- <div class="col-sm-6">
+					<div class="card h-100">
+						<div class="card-header pb-0">
+							<h4 class="mb-0">2,856</h4>
+						</div>
+						<div class="card-body">
+							<div id="sessionsColumnChart" class="mb-3"></div>
+							<h6 class="text-center mb-0">Sessions</h6>
+						</div>
+					</div>
+				</div> -->
+				<!--/ Sessions chart -->
+			</div>
+		</div>
 		<div class="col-xl-6 col-md-6">
 			<div class="card">
 				<div class="card-header d-flex align-items-center justify-content-between">
@@ -147,77 +221,7 @@
 		<!--/ Total Earnings -->
 
 		<!-- Four Cards -->
-		<div class="col-xl-4 col-md-6">
-			<div class="row gy-4">
-				<div class="col-sm-6">
-					<div class="card h-100">
 
-						<div class="card-body mt-mg-1">
-							<h6 class="mb-2">Jumlah Nasabah</h6>
-							<div class="d-flex flex-wrap align-items-center justify-content-center p-5">
-								<h4 class="mb-0 me-2"><?= $nasabah ?></h4>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6">
-					<div class="card h-100">
-
-						<div class="card-body mt-mg-1">
-							<h6 class="mb-2">Jumlah Kategori Sampah</h6>
-							<div class="d-flex flex-wrap align-items-center justify-content-center p-5">
-								<h4 class="mb-0 me-2"><?= $sampah ?></h4>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6">
-					<div class="card h-100">
-
-						<div class="card-body mt-mg-1">
-							<h6 class="mb-2">Jumlah pelapak</h6>
-							<div class="d-flex flex-wrap align-items-center justify-content-center p-5">
-								<h4 class="mb-0 me-2"><?= $jumlah_pelapak ?></h4>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6">
-					<div class="card h-100">
-
-						<div class="card-body mt-mg-1">
-							<h6 class="mb-2">Jumlah Transaksi Nasabah</h6>
-							<div class="d-flex flex-wrap align-items-center justify-content-center p-5">
-								<h4 class="mb-0 me-2"><?= $transaksi_nasabah ?></h4>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- <div class="col-sm-6">
-					<div class="card h-100">
-
-						<div class="card-body mt-mg-1">
-							<h6 class="mb-2">Jumlah Penjualan ke- Pelapak</h6>
-							<div class="d-flex flex-wrap align-items-center justify-content-center p-5">
-								<h4 class="mb-0 me-2"><?= $transaksi_pelapak ?></h4>
-							</div>
-						</div>
-					</div>
-				</div> -->
-				<!-- <div class="col-sm-6">
-					<div class="card h-100">
-						<div class="card-header pb-0">
-							<h4 class="mb-0">2,856</h4>
-						</div>
-						<div class="card-body">
-							<div id="sessionsColumnChart" class="mb-3"></div>
-							<h6 class="text-center mb-0">Sessions</h6>
-						</div>
-					</div>
-				</div> -->
-				<!--/ Sessions chart -->
-			</div>
-		</div>
 		<!-- Weekly Overview Chart -->
 		<div class="col-xl-6 col-md-6">
 			<div class="card">

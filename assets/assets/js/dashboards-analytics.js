@@ -35,7 +35,7 @@
     const weeklyOverviewChartEl = document.querySelector('#weeklyOverviewChart'),
     weeklyOverviewChartConfig = {
       chart: {
-        type: 'bar',
+        type: 'line',
         height: 200,
         offsetY: -9,
         offsetX: -16,

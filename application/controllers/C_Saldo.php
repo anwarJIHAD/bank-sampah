@@ -136,7 +136,7 @@ class C_Saldo extends SDA_Controller
 				<td><span class="badge rounded-pill bg-label-primary me-1">RP.' . $us['saldo'] . '</span></td>
 				<td class="text-center">
 				<a href="' . base_url('C_Saldo/detail/' . $us['id_nasabah'] . '') . '" class="btn btn-sm btn-outline-primary text">
-				<div style="color:#9055fd; font-size:10px;">Detail</div>
+				<div style="color:#55dbfd; font-size:10px;">Detail</div>
 			</a>
 				</td>
 			</tr>
@@ -189,7 +189,7 @@ class C_Saldo extends SDA_Controller
 					<button style="padding: 0; border: none; background: none;"><a
 							onclick="edit(' . $us['id_penarikan'] . ', ' . '\'saldo\'' . ')"
 							class="btn btn-sm btn-outline-warning text"
-							style="color:#ffc107; font-size:10px;">
+							style="color:#55dbfd; font-size:10px;">
 							Edit</a></button>
 					<button style="padding: 0; border: none; background: none;"><a
 							onclick="hapus(' . $us['id_penarikan'] . ', ' . $us['id_nasabah'] . ')"

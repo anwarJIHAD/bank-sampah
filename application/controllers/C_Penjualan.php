@@ -254,12 +254,12 @@ class C_Penjualan extends SDA_Controller
 				<td>' . $us['jumlah_transaksi'] . '</td>
 				<td class="text-center">
 				<a href="' . base_url('C_Penjualan/detail/' . $us['id_pelapak'] . '') . '" class="btn btn-sm btn-outline-primary text">
-					<div style="color:#9055fd; font-size:10px;">Detail Transaksi</div>
+					<div style="color:#55dbfd; font-size:10px;">Detail Transaksi</div>
 				</a>
 				<button style="padding: 0; border: none; background: none;"><a
 							onclick="edit(' . $us['id_pelapak'] . ', ' . '\'pelapak\'' . ')"
 							class="btn btn-sm btn-outline-warning text"
-							style="color:#ffc107; font-size:10px;">
+							style="color:#55dbfd; font-size:10px;">
 							Edit</a></button>
 				<button style="padding: 0; border: none; background: none;"><a
 							onclick="hapus(' . $us['id_pelapak'] . ', ' . '\'pelapak\'' . ')"
@@ -311,10 +311,10 @@ class C_Penjualan extends SDA_Controller
 				<td>' . $us['tanggal_transaksi'] . '</td>
 				<td>' . $us['jumlah_sampah'] . '</td>
 				<td>' . $us['berat'] . '</td>
-				<td>Rp.' . $us['pendapatan'] . '</td>
+				<td><span class="badge rounded-pill bg-label-primary me-1">RP.' . $us['pendapatan'] . '</span></td>
 				<td class="text-center">
 				<a href="' . base_url('C_Penjualan/detail2/' . $us['id_pelapak'] . '/' . $us['tanggal_transaksi']) . '" class="btn btn-sm btn-outline-primary text">
-					<div style="color:#9055fd; font-size:10px;">Detail</div>
+					<div style="color:#55dbfd; font-size:10px;">Detail</div>
 				</a>
 				<button style="padding: 0; border: none; background: none;"><a
 							onclick="hapus2(' . "'$tgl'" . ', ' . $us['id_pelapak'] . ',' . '\'pelapak\'' . ')"
@@ -371,10 +371,10 @@ class C_Penjualan extends SDA_Controller
 				<td>' . $us['kategori'] . '</td>
 				<td>' . $us['harga/kg'] . '</td>
 				<td>' . $us['berat_sampah'] . '</td>
-				<td>Rp.' . $us['pendapatan'] . '</td>	
+				<td><span class="badge rounded-pill bg-label-primary me-1">RP.' . $us['pendapatan'] . '</span></td>	
 				<td class="text-center">
 				<a href="' . base_url('C_Penjualan/edit/' . $us['id_transaksi_p']) . '" class="btn btn-sm btn-outline-primary text">
-					<div style="color:#ffc107; font-size:10px;">Edit</div>
+					<div style="color:#55dbfd; font-size:10px;">Edit</div>
 				</a>
 				</td>
 			</tr>

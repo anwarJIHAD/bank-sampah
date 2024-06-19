@@ -151,7 +151,7 @@ class C_Operasional extends SDA_Controller
 					<button style="padding: 0; border: none; background: none;"><a
 							onclick="edit(' . $us['id_operasional'] . ', ' . '\'Operasional\'' . ')"
 							class="btn btn-sm btn-outline-warning text"
-							style="color:#ffc107; font-size:10px;">
+							style="color:#55dbfd; font-size:10px;">
 							Edit</a></button>
 					<button style="padding: 0; border: none; background: none;"><a
 							onclick="hapus(' . $us['id_operasional'] . ', ' . '\'Operasional\'' . ')"
