@@ -43,49 +43,101 @@ class C_Laporan extends SDA_Controller
 			$jenis = $this->input->post('jenis_data');
 			$tanggal_mulai = $this->input->post('tanggal_mulai');
 			$tanggal_selesai = $this->input->post('tanggal_selesai');
+
 			$rentang_waktu = $this->input->post('rentang_waktu');
 			$nama_nasabah = $this->input->post('nama_nasabah');
 
 			$format = $this->input->post('format');
 			if ($format == "PDF") {
 				// $this->load->library('pdf11');
-				if ($rentang_waktu == 'semua') {
-					$this->load->library('M_pdf');
-					if ($jenis == 'Transaksi Nasabah') {
-						$data['transaksi'] = $this->Transaksi_model->Laporan_all();
 
-						$data['priode'] = 'Seluruh';
-						$data['total_trans'] = $this->Laporan_model->total_transnasabah();
-
-						// menggunakan mpdf
-						$html = $this->load->view('pages/Laporan/PDF_Nasabah', $data, TRUE);
-						// echo ($html);
-						// die;
-						// Memuat HTML ke mPDF
-						$this->m_pdf->pdf->WriteHTML($html);
-
-						// Menyimpan PDF ke file
-						$this->m_pdf->pdf->Output('example.pdf', 'I'); // 'I' untuk output ke browser, 'D' untuk download, 'F' untuk menyimpan file
-
-						//menggunakan xaspdf
-						// $html = $this->load->view('pages/Laporan/PDF_Nasabah', $data, TRUE);
-
-						// pdf_create($html, 'sample');
-
-						// $html = $this->load->view('pages/Laporan/PDF_Nasabah', $data, true);
-						// $this->pdf11->createPDF($html, 'mypdf', false);
-					} else if ($jenis == "Debit Kredit Nasabah") {
-						// Tambahkan logika untuk "Debit Kredit Nasabah"
-					} else if ($jenis == "Transaksi Penjualan") {
-						// Tambahkan logika untuk "Transaksi Penjualan"
-					} else if ($jenis == "Jurnal Akuntasi") {
-						// Tambahkan logika untuk "Jurnal Akuntasi"
-					} else if ($jenis == "Operasional") {
-						// Tambahkan logika untuk "Operasional"
+				$this->load->library('M_pdf');
+				if ($jenis == 'Transaksi Nasabah') {
+					$data['transaksi'] = $this->Transaksi_model->Laporan_all($nama_nasabah, $tanggal_mulai, $tanggal_selesai);
+					if ($nama_nasabah != '') {
+						$data['nama_nasabah'] = $this->Nasabah_model->getById($nama_nasabah);
 					} else {
-						echo 'selesai';
+						$data['nama_nasabah'] = '';
 					}
+					if ($tanggal_mulai != '') {
+						$data['priode'] = $tanggal_mulai . 's/d' . $tanggal_selesai;
+
+					} else {
+						$data['priode'] = 'Seluruh';
+					}
+					$data['total_trans'] = $this->Laporan_model->total_transnasabah($nama_nasabah, $tanggal_mulai, $tanggal_selesai);
+					// menggunakan mpdf
+					$html = $this->load->view('pages/Laporan/PDF_Nasabah', $data, TRUE);
+					// Memuat HTML ke mPDF
+					$this->m_pdf->pdf->WriteHTML($html);
+
+					// Menyimpan PDF ke file
+					$this->m_pdf->pdf->Output('Laporan Transaksi Nasabah.pdf', 'I'); // 'I' untuk output ke browser, 'D' untuk download, 'F' untuk menyimpan file
+				} else if ($jenis == "Debit Kredit Nasabah") {
+					// Tambahkan logika untuk "Debit Kredit Nasabah"
+					$data['transaksi'] = $this->Laporan_model->fech_debitkredit($nama_nasabah, $tanggal_mulai, $tanggal_selesai)->result_array();
+					// var_dump($data['transaksi']);
+					// die; 
+
+
+
+
+
+
+
+
+
+
+					
+					if ($nama_nasabah != '') {
+						$data['nama_nasabah'] = $this->Nasabah_model->getById($nama_nasabah);
+					} else {
+						$data['nama_nasabah'] = '';
+					}
+					if ($tanggal_mulai != '') {
+						$data['priode'] = $tanggal_mulai . 's/d' . $tanggal_selesai;
+
+					} else {
+						$data['priode'] = 'Seluruh';
+					}
+					$totalKredit = 0;
+					$totalDebit = 0;
+					if ($data['transaksi']) {
+						foreach ($data['transaksi'] as $us) {
+							$debit = 0;
+							$kredit = 0;
+							if ($us['jenis_'] == 'nasabah') {
+								$debit = $us['harga_'];
+							} else {
+								$kredit = $us['harga_'];
+							}
+							$totalKredit += $kredit;
+							$totalDebit += $debit;
+						}
+					}
+
+					$data['debit'] = $totalDebit;
+					$data['kredit'] = $totalKredit;
+
+					// menggunakan mpdf
+					$html = $this->load->view('pages/Laporan/PDF_Debitkredit', $data, TRUE);
+					// Memuat HTML ke mPDF
+					$this->m_pdf->pdf->WriteHTML($html);
+
+					// Menyimpan PDF ke file
+					$this->m_pdf->pdf->Output('Laporan Transaksi Nasabah.pdf', 'I'); // 'I' untuk output ke browser, 'D' untuk download, 'F' untuk menyimpan file
+
+				} else if ($jenis == "Transaksi Penjualan") {
+					// Tambahkan logika untuk "Transaksi Penjualan"
+
+				} else if ($jenis == "Jurnal Akuntasi") {
+					// Tambahkan logika untuk "Jurnal Akuntasi"
+				} else if ($jenis == "Operasional") {
+					// Tambahkan logika untuk "Operasional"
+				} else {
+					echo 'selesai';
 				}
+
 
 			} else {
 				// Logika untuk format selain PDF

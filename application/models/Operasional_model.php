@@ -211,7 +211,7 @@ class Operasional_model extends CI_Model
 		// Reset query builder
 		$this->db->reset_query();
 
-		// Query untuk tabel2
+		// Query untuk tabel2	
 		$this->db->select("nominal AS harga_, keterangan AS jenis_, tanggal_penarikan AS tanggal_gabungan");
 		$this->db->from($this->table4);
 		$this->db->where('id_nasabah', $id);
