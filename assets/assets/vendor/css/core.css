@@ -16877,7 +16877,7 @@ html:not(.layout-menu-fixed) .menu-inner-shadow {
   transition: padding 0.2s ease, background-color 0.18s ease;
 }
 .layout-navbar.navbar-detached.container-xxl {
-  max-width: calc(1440px - 1.5rem * 2);
+  max-width: 100%;
 }
 .layout-navbar-fixed .layout-navbar.navbar-detached {
   width: calc(100% - 1.5rem * 2 - 16.25rem);

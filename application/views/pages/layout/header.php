@@ -22,7 +22,8 @@
 		}
 	</style>
 	<!-- Favicon -->
-	<link rel="icon" type="image/x-icon" href="<?= base_url('assets/') ?>assets/img/favicon/favicon.ico" />
+	<link rel="icon" type="image/x-icon" href="<?= base_url('assets/') ?>assets/img/favicon/logo1.ico" />
+
 
 	<!-- Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -183,6 +184,46 @@
 			justify-content: center;
 			/* Center content horizontally */
 		}
+
+		.navbar {
+			width: 100%;
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			z-index: 1030;
+			/* Ensure the navbar is above other content */
+			background-color: #fff !important;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		}
+
+		.navbar-nav .nav-link {
+			padding: 0.5rem 1rem;
+		}
+
+		.avatar-online img {
+			border: 2px solid #4caf50;
+		}
+
+		/* Ensuring full width */
+		.navbar-container {
+			width: 100%;
+			padding: 0 15px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.layout-navbar {
+			background-color: #4AC7D5 !important;
+
+		}
+		.app-brand{
+			background-color: #4AC7D5 !important;
+		}
+		.menu-inner{
+			background-color: #92A2B1 !important;
+		}
 	</style>
 </head>
 
@@ -195,7 +236,7 @@
 			<aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme"
 				style="background-color: #fff!important;">
 				<div class="app-brand demo">
-					<a href="index.html" class="app-brand-link">
+					<a href="#" class="app-brand-link">
 						<span class="app-brand-logo demo me-1">
 							<span style="color: var(--bs-primary)">
 								<svg width="30" height="24" viewBox="0 0 250 196" fill="none"
@@ -346,8 +387,8 @@
 			<div class="layout-page">
 				<!-- Navbar -->
 
-				<nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme fixed-top"
-					id="layout-navbar" style="background-color:#fff!important; border-radius: 0.375rem;">
+				<nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+					id="layout-navbar">
 					<div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
 						<a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
 							<i class="mdi mdi-menu mdi-24px"></i>
@@ -356,18 +397,23 @@
 
 					<div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
 						<!-- Search -->
-						<div class="navbar-nav align-items-center">
-							<div class="nav-item d-flex align-items-center">
-
-								<div class="p-2 ml-2">Hallo, <?php echo $this->session->userdata('login_type') ?></div>
+						<!-- <div class="navbar-nav align-items-end">
+							<div class="nav-item d-flex align-items-end">
+								<div class="p-2 ml-2">Hallo,sssssssssssssssssssssssssssss <?php echo $this->session->userdata('login_type') ?></div>
 							</div>
-						</div>
+						</div> -->
 						<!-- /Search -->
 
 						<ul class="navbar-nav flex-row align-items-center ms-auto">
+							<div class="navbar-nav align-items-end">
+								<div class="nav-item d-flex align-items-end">
+									<div class="p-1 ml-2">Hallo, <?php echo $this->session->userdata('login_type') ?>
+									</div>
+								</div>
+							</div>
 							<!-- Place this tag where you want the button to render. -->
 							<!-- User -->
-							<li class="nav-item navbar-dropdown dropdown-user dropdown">
+							<li class="nav-item navbar-dropdown dropdown-user dropdown p-4">
 								<a class="nav-link dropdown-toggle hide-arrow p-0" href="javascript:void(0);"
 									data-bs-toggle="dropdown">
 									<div class="avatar avatar-online">
@@ -415,4 +461,4 @@
 				<!-- / Navbar -->
 
 				<!-- Content wrapper -->
-				<div class="content-wrapper">
+				<div class="content-wrapper" style="margin-top: 80px;">
