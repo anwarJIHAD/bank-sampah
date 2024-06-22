@@ -143,7 +143,7 @@ class C_Sampah extends SDA_Controller
 				' . $i . '
 				</td>
 				<td>' . $us['kategori'] . '</td>
-				<td>' . $us['harga_nasabah'] . '</td>
+				<td><span class="badge rounded-pill bg-label-primary me-1">RP.' . $us['harga_nasabah'] . '</span></td>
 				<!--<td>' . $us['harga_unit'] . '</td>-->
 				<td class="text-center">
 					<button style="padding: 0; border: none; background: none;"><a

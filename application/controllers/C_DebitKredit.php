@@ -97,7 +97,7 @@ class C_DebitKredit extends SDA_Controller
 			$output .= '<tr>
 							<td colspan="5">No Data Found</td>
 						</tr>';
-					
+
 		}
 
 		echo $output;
@@ -107,7 +107,7 @@ class C_DebitKredit extends SDA_Controller
 		$output = '';
 		$query = '';
 		$id_nasabah = $this->input->post('id_nasabah');
-		
+
 		$this->load->model('Nasabah_model');
 		$data = $this->Operasional_model->fetch_data_debitkredit($query, $id_nasabah);
 		// var_dump($data);
@@ -150,8 +150,8 @@ class C_DebitKredit extends SDA_Controller
 				</td>
 				<td>' . $us['tanggal_gabungan'] . '</td>
 				<td>' . $keterangan . '</td>
-				<td>' . $debit . '</td>
-				<td>' . $kredit . '</td>
+				<td style="color:#006400;">Rp. ' . $debit . '</td>
+				<td style="color:red;">Rp. ' . $kredit . '</td>
 				
 				
 			</tr>

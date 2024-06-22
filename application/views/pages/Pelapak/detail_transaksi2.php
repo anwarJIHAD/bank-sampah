@@ -1,7 +1,10 @@
 <!-- Bootstrap Table with Header - Light -->
 <div class="container-xxl flex-grow-1 container-p-y">
-	<h4 class="fw-bold py-3 mb-4"> <a class="text-muted fw-light" href="<?= base_url('C_Penjualan') ?>">Transaksi/</a>
-		Detail</h4>
+	<h4 class="fw-bold py-3 mb-4"> <a class="text-muted fw-light" href="<?= base_url('C_Penjualan') ?>">Penjualan
+			Pelapak/</a><a class="text-muted fw-light"
+			href="<?= base_url('C_Penjualan/detail/') . $id_pelapak ?>">Detail
+			Penjualan/</a>
+		Detail transaksi</h4>
 	<div class="card">
 		<div class="row">
 
@@ -39,7 +42,7 @@
 						<th>No</th>
 						<th>Jenis Sampah</th>
 						<th>harga/kg</th>
-						<th>berat</th>
+						<th>berat(kg)</th>
 						<th>Total Pendapatan</th>
 						<th class="text-center">Aksi</th>
 					</tr>

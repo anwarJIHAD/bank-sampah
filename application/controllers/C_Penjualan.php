@@ -96,8 +96,13 @@ class C_Penjualan extends SDA_Controller
 			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 		</div>');
 				redirect('C_Penjualan');
+			} else {
+				$this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible" role="alert">
+				Data pelapak Tidak jadi di ubah
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>');
+				redirect('C_Penjualan');
 			}
-			echo 'gagal';
 
 
 

@@ -1,6 +1,6 @@
 <!-- Bootstrap Table with Header - Light -->
 <div class="container-xxl flex-grow-1 container-p-y">
-	<h4 class="py-1 mb-3"><span class="text-muted fw-light"></span> Transaksi</h4>
+	<h4 class="py-1 mb-3"><span class="text-muted fw-light"></span> Penjualan Pelapak</h4>
 	<div class="card">
 		<div class="row">
 

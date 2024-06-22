@@ -183,7 +183,7 @@ class C_Saldo extends SDA_Controller
 				' . $i . '
 				</td>
 				<td>' . $us['tanggal_penarikan'] . '</td>
-				<td>' . $us['nominal'] . '</td>
+				<td><span class="badge rounded-pill bg-label-primary me-1">RP.' . $us['nominal'] . '</span></td>
 				<td>' . $us['keterangan'] . '</td>
 				<td class="text-center">
 					<button style="padding: 0; border: none; background: none;"><a

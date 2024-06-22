@@ -1,7 +1,8 @@
 <!-- Bootstrap Table with Header - Light -->
 <div class="container-xxl flex-grow-1 container-p-y">
-	<h4 class="fw-bold py-3 mb-4"> <a class="text-muted fw-light" href="<?= base_url('C_Transaksi') ?>">Transaksi/</a>
-		Detail</h4>
+	<h4 class="fw-bold py-3 mb-4"> <a class="text-muted fw-light" href="<?= base_url('C_Transaksi') ?>">Transaksi/</a><a
+			class="text-muted fw-light" href="<?= base_url('C_Transaksi/detail/') . $id_nasabah ?>">Detail Transaksi Nasabah/</a>
+		Detail Per Transaksi</h4>
 	<div class="card">
 		<div class="row">
 

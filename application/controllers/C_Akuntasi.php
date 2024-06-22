@@ -93,8 +93,8 @@ class C_Akuntasi extends SDA_Controller
 				</td>
 				<td>' . $us['tanggal_gabungan'] . '</td>
 				<td>' . $keterangan . '</td>
-				<td>' . $debit . '</td>
-				<td>' . $kredit . '</td>
+				<td style="color:#006400;">Rp. ' . $debit . '</td>
+				<td style="color:red;">Rp. ' . $kredit . '</td>
 				
 				
 			</tr>

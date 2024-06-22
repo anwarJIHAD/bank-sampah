@@ -29,7 +29,7 @@
 					<tr>
 						<th>No</th>
 						<th>Jenis Sampah</th>
-						<th>Harga Untuk Nasabah</th>
+						<th>Harga/Kg</th>
 						<!-- <th>Harga Unit</th> -->
 						<th class="text-center">Aksi</th>
 					</tr>

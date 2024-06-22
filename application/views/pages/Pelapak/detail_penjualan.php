@@ -35,7 +35,7 @@
 						<th>No</th>
 						<th>Tanggal Transaksi</th>
 						<th>Jumlah Jenis Sampah</th>
-						<th>Total Berat Sampah</th>
+						<th>Total Berat Sampah (Kg)</th>
 						<th>Total Pendapatan</th>
 						<th class="text-center">Aksi</th>
 					</tr>
