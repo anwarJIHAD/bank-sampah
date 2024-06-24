@@ -36,6 +36,10 @@
 					</tr>
 				</thead>
 				<tbody class="table-border-bottom-0 text-left" id="resultMain">
+					<!-- <td><span class="badge rounded-pill bg-label-primary me-1">RP 4000'</span></td>
+					<td><span class="badge rounded-pill bg-label-primary me-1">RP 5000'</span></td>
+					<td><span class="badge rounded-pill bg-label-primary me-1">RP 7000'</span></td>
+					<td><span class="badge rounded-pill bg-label-primary me-1">RP 4000'</span></td> -->
 					<?php $i = 1; ?>
 					<!-- <?php foreach ($Nasabah as $us): ?>
 						<tr>
@@ -76,17 +80,18 @@
 <script>
 	$(document).ready(function () {
 		load_data();
+
 		function load_data(query) {
 			$.ajax({
 				url: "<?= base_url(); ?>C_Nasabah/fetch",
 				method: "POST",
-				data: {
-					query: query
-				},
+				data: { query: query },
 				success: function (data) {
 					$('#resultMain').html(data);
+					// Panggil fungsi untuk mengambil teks setelah data dimuat
+					getBadgeTexts();
 				}
-			})
+			});
 		}
 
 		$('#posSearch').on("keyup", function () {
@@ -98,17 +103,21 @@
 				load_data();
 			}
 		});
+
 		$("#Psearch").change(function () {
 			$('#posSearch').val('');
 			var search = $(this).val();
-
 			if (search != '') {
 				load_data(search);
-				console.log(search)
+				console.log(search);
 			} else {
 				load_data();
 			}
 		});
 
+		
 	});
+
+
+
 </script>

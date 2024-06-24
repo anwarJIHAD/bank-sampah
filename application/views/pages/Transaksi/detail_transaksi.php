@@ -62,6 +62,8 @@
 				},
 				success: function (data) {
 					$('#resultMain').html(data);
+					getBadgeTexts();
+
 				}
 			})
 		}

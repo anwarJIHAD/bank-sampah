@@ -42,6 +42,23 @@
 							</select>
 							<label for="nama_nasabah">Nasabah</label>
 						</div>
+
+						<!-- Dropdown pelapak yang akan muncul/hidden -->
+						<div class="form-floating form-floating-outline mb-4" id="dropdown_pelapak"
+							style="display:none;">
+							<select name="nama_pelapak" id="nama_pelapak" class="form-control"
+								placeholder="nama_pelapak">
+								<option value="">semua</option>
+								<?php foreach ($pelapak as $us): ?>
+									<!-- Menggunakan set_value() untuk memeriksa dan menandai opsi yang dipilih -->
+									<?= set_select('nama_pelapak', $us['id_pelapak'], (set_value('nama_pelapak') == $us['id_pelapak'])); ?>>
+									<option value="<?= htmlspecialchars($us['id_pelapak']); ?>">
+										<?= htmlspecialchars($us['nama']); ?>
+									</option>
+								<?php endforeach; ?>
+							</select>
+							<label for="nama_pelapak">pelapak</label>
+						</div>
 						<div class="form-floating form-floating-outline mb-4">
 							<select name="rentang_waktu" id="rentang_waktu" class="form-control"
 								placeholder="rentang_waktu">
@@ -69,7 +86,7 @@
 							</div>
 						</div>
 
-						<div class="form-floating form-floating-outline mb-4">
+						<!-- <div class="form-floating form-floating-outline mb-4">
 							<select name="format" id="format" class="form-control" placeholder="format">
 								<option value="">---Pilih Format---</option>
 								<option value="PDF">PDF</option>
@@ -77,7 +94,7 @@
 							</select>
 							<label for="basic-default-message">format</label>
 							<?= form_error('format', '<small class="text-danger pl-3">', '</small>'); ?>
-						</div>
+						</div> -->
 						<button type="submit" class="btn btn-warning">EXPORT</button>
 					</form>
 				</div>
@@ -96,8 +113,11 @@
 			var selectedValue = $(this).val();
 			if (selectedValue === 'Transaksi Nasabah' || selectedValue === 'Debit Kredit Nasabah') {
 				$("#dropdown_nasabah").show();
+			} else if (selectedValue === 'Transaksi Penjualan') {
+				$("#dropdown_pelapak").show();
 			} else {
 				$("#dropdown_nasabah").hide();
+				$("#dropdown_pelapak").hide();
 			}
 		});
 		$("#rentang_waktu").change(function () {

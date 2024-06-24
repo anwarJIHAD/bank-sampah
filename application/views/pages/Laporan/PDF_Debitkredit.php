@@ -1,3 +1,10 @@
+<?php
+function formatRupiah($angka)
+{
+	return '' . number_format($angka, 0, ',', '.');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,6 +34,7 @@
 			rupiah = split[1] !== undefined ? rupiah + ',' + split[1] : rupiah;
 			return 'Rp. ' + rupiah;
 		}
+
 	</script>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -116,6 +124,10 @@
 			margin-left: 600px;
 			margin-right: 0;
 		}
+
+		.right-align {
+			text-align: right;
+		}
 	</style>
 </head>
 
@@ -139,41 +151,59 @@
 			<p>Nama Nasabah: <?php echo $nama_nasabah['nama'] ?></p>
 		<?php } ?>
 
-		<h3>Data Transaksi</h3>
+		<h3>Data Debit Kredit Nasabah</h3>
 		<table>
 			<thead>
 				<tr>
 					<th>No</th>
-					<th>Tanggal Transaksi</th>
-					<th>Nama Nasabah</th>
-					<th>Jenis Sampah</th>
-					<th>Berat Sampah</th>
-					<th>Harga/kg</th>
-					<th>Pendapatan</th>
+					<th>Tanggal</th>
+					<th>Keterangan</th>
+					<th>Debit</th>
+					<th>Kredit</th>
 				</tr>
 			</thead>
 			<tbody>
 				<?php $no = 1; ?>
 				<?php foreach ($transaksi as $us): ?>
+					<?php $keterangan = '';
+					if ($us['jenis_'] == 'nasabah') {
+						$keterangan = 'transaksi nasabah';
+					} else if ($us['jenis_'] == 'pelapak') {
+						$keterangan = 'Penjualan ke pelapak';
+					} else {
+						$keterangan = $us['jenis_'];
+					}
+
+					$debit = '';
+					if ($us['jenis_'] == 'nasabah') {
+						$debit = $us['harga_'];
+					} else {
+						$debit = '-';
+					}
+
+					$kredit = '';
+					if ($us['jenis_'] == 'nasabah') {
+						$kredit = '-';
+					} else {
+						$kredit = $us['harga_'];
+					} ?>
+
 					<tr>
 						<td><?= $no; ?></td>
-						<td><?= $us['tanggal_transaksi']; ?></td>
-						<td><?= $us['nama']; ?></td>
-						<td><?= $us['kategori']; ?></td>
-						<td><?= $us['berat_sampah']; ?></td>
-						<td><?= $us['harga/kg']; ?></td>
-						<td><?= $us['pendapatan']; ?></td>
+						<td><?= $us['tanggal_gabungan']; ?></td>
+						<td><?= $keterangan; ?></td>
+						<td class="right-align"><?= $debit ?></td>
+						<td class="right-align"><?= $kredit ?></td>
 					</tr>
 					<?php $no++; ?>
 				<?php endforeach; ?>
-
+				<tr>
+					<td colspan="3" style="text-align: center;  font-weight: bold;">TOTAL</td>
+					<td class="right-align"><?= $debit_ ?></td>
+					<td class="right-align"><?= $kredit_ ?></td>
+				</tr>
 			</tbody>
 		</table>
-
-		<h3>Ringkasan</h3>
-		<p>Total Transaksi:
-		<div id="total">Rp.<?php echo $total_trans ?></div>
-		</p>
 
 		<div class="signature-container">
 			<p>Atas Nama</p>

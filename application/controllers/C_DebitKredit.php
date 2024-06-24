@@ -150,8 +150,8 @@ class C_DebitKredit extends SDA_Controller
 				</td>
 				<td>' . $us['tanggal_gabungan'] . '</td>
 				<td>' . $keterangan . '</td>
-				<td style="color:#006400;">Rp. ' . $debit . '</td>
-				<td style="color:red;">Rp. ' . $kredit . '</td>
+				<td style="color:#006400;" ><p class="rupiah">' . $debit . '</p></td>
+				<td style="color:red;"><p class="rupiah">' . $kredit . '</p></td>
 				
 				
 			</tr>

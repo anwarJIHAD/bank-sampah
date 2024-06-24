@@ -4,10 +4,37 @@ function formatRupiah($angka)
     return '' . number_format($angka, 0, ',', '.');
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+	<script>
+		$(document).ready(function () {
+			var total = document.getElementById("total");
+
+			// Format angka menjadi rupiah
+			total.innerHTML = formatRupiah(total.innerHTML);
+
+		});
+
+		function formatRupiah(angka) {
+			var number_string = angka.toString().replace(/[^,\d]/g, '').toString(),
+				split = number_string.split(','),
+				sisa = split[0].length % 3,
+				rupiah = split[0].substr(0, sisa),
+				ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+			// tambahkan titik jika yang diinput sudah menjadi angka ribuan
+			if (ribuan) {
+				separator = sisa ? '.' : '';
+				rupiah += separator + ribuan.join('.');
+			}
+
+			rupiah = split[1] !== undefined ? rupiah + ',' + split[1] : rupiah;
+			return 'Rp. ' + rupiah;
+		}
+	</script>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Laporan</title>
@@ -119,40 +146,34 @@ function formatRupiah($angka)
 	<div class="content">
 		<h2>Laporan <?php echo $priode ?></h2>
 		<p>Periode: <?php echo $priode ?></p>
-		<?php if ($nama_nasabah != '') { ?>
-			<p>Nama Nasabah: <?php echo $nama_nasabah['nama'] ?></p>
-		<?php } ?>
-
-		<h3>Data Transaksi</h3>
+		<h3>Data Jurnal Akuntasi</h3>
 		<table>
 			<thead>
 				<tr>
 					<th>No</th>
-					<th>Tanggal Transaksi</th>
-					<th>Nama Nasabah</th>
-					<th>Jenis Sampah</th>
-					<th>Berat Sampah</th>
-					<th>Harga/kg</th>
-					<th>Pendapatan</th>
+					<th>Tanggal</th>
+					<th>Keterangan</th>
+					<th>Harga</th>
 				</tr>
 			</thead>
 			<tbody>
 				<?php $no = 1; ?>
+				<?php $total = 0; ?>
 				<?php foreach ($transaksi as $us): ?>
 					<tr>
 						<td><?= $no; ?></td>
-						<td><?= $us['tanggal_transaksi']; ?></td>
-						<td><?= $us['nama']; ?></td>
-						<td><?= $us['kategori']; ?></td>
-						<td><?= $us['berat_sampah']; ?></td>
-						<td><?= formatRupiah($us['harga/kg']); ?></td>
-						<td class="right-align"><?= formatRupiah($us['pendapatan']); ?></td>
+						<td><?= $us['tanggal_pengeluaran']; ?></td>
+						<td><?= $us['keterangan']; ?></td>
+						<td class="right-align"><?= formatRupiah($us['harga']); ?></td>
+						<?php $total += $us['harga'];?>
+						
 					</tr>
 					<?php $no++; ?>
 				<?php endforeach; ?>
 				<tr>
-					<td colspan="6" style="text-align: center;  font-weight: bold;">TOTAL TRANSAKSI</td>
-					<td class="right-align"><?= formatRupiah($total_trans) ?></td>
+					<td colspan="3" style="text-align: center;  font-weight: bold;">TOTAL</td>
+					<td>Rp.<?php echo $total ?></td>
+					
 				</tr>
 			</tbody>
 		</table>

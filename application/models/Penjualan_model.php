@@ -131,7 +131,7 @@ class Penjualan_model extends CI_Model
 		}
 		// Mengubah inner join menjadi left join
 		$this->db->group_by('t.tanggal_transaksi'); // Group by harus berdasarkan id_nasabah di tabel nasabah
-
+		
 		if ($query != '') {
 			$this->db->like('t.tanggal_transaksi', $query); // Pastikan pencarian dilakukan pada kolom yang tepat
 		}

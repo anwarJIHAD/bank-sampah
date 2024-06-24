@@ -39,7 +39,50 @@
 <script src="<?= base_url('assets/') ?>assets/vendor/libs/node-waves/node-waves.js"></script>
 <script src="<?= base_url('assets/') ?>assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
 <script src="<?= base_url('assets/') ?>assets/vendor/js/menu.js"></script>
+<script>
+	function getBadgeTexts() {
+		console.log("getBadgeTexts called"); // Log untuk debugging
+		$('#resultMain td .badge').each(function () {
+			var text = $(this).text().replace('RP.', '').replace("'", ''); // Menghapus "RP." dan "'" dari teks
+			console.log("Original text:", text); // Log untuk debugging
+			var number = parseFloat(text.replace(/,/g, '')); // Menghapus koma dan mengubah teks menjadi angka
 
+			if (!isNaN(number)) { // Pastikan number adalah angka
+				const rupiah = new Intl.NumberFormat("id-ID", {
+					style: "currency",
+					currency: "IDR",
+					maximumFractionDigits: 0,
+				}).format(number);
+
+				console.log("Formatted text:", rupiah); // Log untuk debugging
+				$(this).text(rupiah); // Memasukkan kembali hasil format Rupiah ke dalam elemen <span>
+			} else {
+				console.log("Not a number:", text); // Log untuk debugging
+			}
+		});
+	}
+	function getBadgeTexts2() {
+		console.log("getBadgeTexts2 called"); // Log untuk debugging
+		$('#resultMain td p').each(function () {
+			var text = $(this).text().replace('RP.', '').replace("'", ''); // Menghapus "RP." dan "'" dari teks
+			console.log("Original text:", text); // Log untuk debugging
+			var number = parseFloat(text.replace(/,/g, '')); // Menghapus koma dan mengubah teks menjadi angka
+			
+			if (!isNaN(number)) { // Pastikan number adalah angka
+				const rupiah = new Intl.NumberFormat("id-ID", {
+					style: "currency",
+					currency: "IDR",
+					maximumFractionDigits: 0,
+				}).format(number);
+
+				console.log("Formatted text:", rupiah); // Log untuk debugging
+				$(this).text(rupiah); // Memasukkan kembali hasil format Rupiah ke dalam elemen <span>
+			} else {
+				console.log("Not a number:", text); // Log untuk debugging
+			}
+		});
+	}
+</script>
 <!-- endbuild -->
 
 <!-- Vendors JS -->

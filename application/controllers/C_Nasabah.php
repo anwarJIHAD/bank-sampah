@@ -142,7 +142,7 @@ class C_Nasabah extends SDA_Controller
 				<td>' . $us['nama'] . '</td>
 				<td>' . $us['alamat'] . '</td>
 				<td>' . $us['no_tlp'] . '</td>
-				<td><span class="badge rounded-pill bg-label-primary me-1">RP.' . $us['saldo'] . '</span></td>
+				<td><span class="badge rounded-pill bg-label-primary me-1">' . $us['saldo'] . '</span></td>
 				<td class="text-center">
 					<button style="padding: 0; border: none; background: none;"><a
 							onclick="edit(' . $us['id_nasabah'] . ', ' . '\'nasabah\'' . ')"

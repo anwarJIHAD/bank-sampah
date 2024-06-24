@@ -1,6 +1,7 @@
 <!-- Bootstrap Table with Header - Light -->
 <div class="container-xxl flex-grow-1 container-p-y">
-	<h4 class="py-1 mb-3"><span class="text-muted fw-light"><a class="text-muted fw-light" href="<?= base_url('C_DebitKredit') ?>">Debit Kredit/</a></span>Detail Debit Kredit</h4>
+	<h4 class="py-1 mb-3"><span class="text-muted fw-light"><a class="text-muted fw-light"
+				href="<?= base_url('C_DebitKredit') ?>">Debit Kredit/</a></span>Detail Debit Kredit</h4>
 	<div class="card">
 		<div class="row">
 
@@ -81,7 +82,7 @@
 		load_data();
 		var debitElement = document.getElementById("totalDebit");
 		var kreditElement = document.getElementById("totalKredit");
-		
+
 		// Format angka menjadi rupiah
 		debitElement.innerHTML = formatRupiah(debitElement.innerHTML);
 		kreditElement.innerHTML = formatRupiah(kreditElement.innerHTML);
@@ -96,6 +97,8 @@
 				},
 				success: function (data) {
 					$('#resultMain').html(data);
+					getBadgeTexts2();
+
 				}
 			})
 		}

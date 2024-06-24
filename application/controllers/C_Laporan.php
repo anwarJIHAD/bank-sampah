@@ -12,6 +12,7 @@ class C_Laporan extends SDA_Controller
 		$this->load->model('Akuntasi_model');
 		$this->load->model('Transaksi_model');
 		$this->load->model('Laporan_model');
+		$this->load->model('Pelapak_model');
 		$this->load->helper('pdf');
 		$this->requiredLogin();
 		preventAccessPengguna(
@@ -25,12 +26,15 @@ class C_Laporan extends SDA_Controller
 
 		$data['judul'] = "Halaman Tambah Nasabah";
 		$data['nasabah'] = $this->Nasabah_model->get();
+		$data['pelapak'] = $this->Pelapak_model->get();
+		// var_dump($data['Pelapak']);
+		// die;
 		$this->form_validation->set_rules('jenis_data', 'jenis_data', 'required', [
 			'required' => 'jenis_data Nasabah Wajib di isi'
 		]);
-		$this->form_validation->set_rules('format', 'format', 'required', [
-			'required' => 'format Wajib di isi',
-		]);
+		// $this->form_validation->set_rules('format', 'format', 'required', [
+		// 	'required' => 'format Wajib di isi',
+		// ]);
 		$this->form_validation->set_rules('rentang_waktu', 'rentang_waktu', 'required', [
 			'required' => 'rentang_waktu Wajib di isi',
 		]);
@@ -46,22 +50,27 @@ class C_Laporan extends SDA_Controller
 
 			$rentang_waktu = $this->input->post('rentang_waktu');
 			$nama_nasabah = $this->input->post('nama_nasabah');
+			$nama_pelapak = $this->input->post('nama_pelapak');
 
-			$format = $this->input->post('format');
+			$format = 'PDF';
 			if ($format == "PDF") {
 				// $this->load->library('pdf11');
 
 				$this->load->library('M_pdf');
+				//laporan untuk jenis nasabah
 				if ($jenis == 'Transaksi Nasabah') {
 					$data['transaksi'] = $this->Transaksi_model->Laporan_all($nama_nasabah, $tanggal_mulai, $tanggal_selesai);
+					// pernasabah
 					if ($nama_nasabah != '') {
 						$data['nama_nasabah'] = $this->Nasabah_model->getById($nama_nasabah);
+						//secara keseluruhan
 					} else {
 						$data['nama_nasabah'] = '';
 					}
+					//pertanggal
 					if ($tanggal_mulai != '') {
 						$data['priode'] = $tanggal_mulai . 's/d' . $tanggal_selesai;
-
+						//tanggal keseluruhan
 					} else {
 						$data['priode'] = 'Seluruh';
 					}
@@ -78,17 +87,6 @@ class C_Laporan extends SDA_Controller
 					$data['transaksi'] = $this->Laporan_model->fech_debitkredit($nama_nasabah, $tanggal_mulai, $tanggal_selesai)->result_array();
 					// var_dump($data['transaksi']);
 					// die; 
-
-
-
-
-
-
-
-
-
-
-					
 					if ($nama_nasabah != '') {
 						$data['nama_nasabah'] = $this->Nasabah_model->getById($nama_nasabah);
 					} else {
@@ -113,11 +111,14 @@ class C_Laporan extends SDA_Controller
 							}
 							$totalKredit += $kredit;
 							$totalDebit += $debit;
+
 						}
 					}
 
-					$data['debit'] = $totalDebit;
-					$data['kredit'] = $totalKredit;
+					$data['debit_'] = $totalDebit;
+					$data['kredit_'] = $totalKredit;
+					// var_dump($data['debit']);
+					// die;
 
 					// menggunakan mpdf
 					$html = $this->load->view('pages/Laporan/PDF_Debitkredit', $data, TRUE);
@@ -129,14 +130,83 @@ class C_Laporan extends SDA_Controller
 
 				} else if ($jenis == "Transaksi Penjualan") {
 					// Tambahkan logika untuk "Transaksi Penjualan"
+					$data['transaksi'] = $this->Laporan_model->fect_penjualan($nama_pelapak, $tanggal_mulai, $tanggal_selesai)->result_array();
+					// var_dump($data['transaksi']);
+					// die;
+					if ($nama_pelapak != '') {
+						$data['nama_pelapak'] = $this->Pelapak_model->getById($nama_pelapak);
+					} else {
+						$data['nama_pelapak'] = '';
+					}
+					if ($tanggal_mulai != '') {
+						$data['priode'] = $tanggal_mulai . 's/d' . $tanggal_selesai;
+					} else {
+						$data['priode'] = 'Seluruh';
+					}
+					$html = $this->load->view('pages/Laporan/PDF_Penjualan', $data, TRUE);
+					// Memuat HTML ke mPDF
+					$this->m_pdf->pdf->WriteHTML($html);
 
+					// Menyimpan PDF ke file
+					$this->m_pdf->pdf->Output('Laporan Transaksi Penjualan ke pelapak.pdf', 'I'); // 'I' untuk output ke browser, 'D' untuk download, 'F' untuk menyimpan file
 				} else if ($jenis == "Jurnal Akuntasi") {
 					// Tambahkan logika untuk "Jurnal Akuntasi"
+					$data['transaksi'] = $this->Laporan_model->fect_akuntasi($tanggal_mulai, $tanggal_selesai)->result_array();
+					if ($tanggal_mulai != '') {
+						$data['priode'] = $tanggal_mulai . 's/d' . $tanggal_selesai;
+
+					} else {
+						$data['priode'] = 'Seluruh';
+					}
+					$totalKredit = 0;
+					$totalDebit = 0;
+					if ($data['transaksi']) {
+						foreach ($data['transaksi'] as $us) {
+							$debit = 0;
+							$kredit = 0;
+							if ($us['jenis_'] == 'pelapak') {
+								$debit = $us['harga_'];
+							} else {
+								$kredit = $us['harga_'];
+							}
+							$totalKredit += $kredit;
+							$totalDebit += $debit;
+						}
+						$data['debit_'] = $totalDebit;
+						$data['kredit_'] = $totalKredit;
+					}
+					$html = $this->load->view('pages/Laporan/PDF_Akuntasi', $data, TRUE);
+					// Memuat HTML ke mPDF
+					$this->m_pdf->pdf->WriteHTML($html);
+
+					// Menyimpan PDF ke file
+					$this->m_pdf->pdf->Output('Laporan Jurnal Akuntasi.pdf', 'I');
+
 				} else if ($jenis == "Operasional") {
 					// Tambahkan logika untuk "Operasional"
+					$data['transaksi'] = $this->Laporan_model->fect_operasional($tanggal_mulai, $tanggal_selesai);
+					// var_dump($data['transaksi']);
+					// die; 
+					if ($nama_nasabah != '') {
+						$data['nama_nasabah'] = $this->Nasabah_model->getById($nama_nasabah);
+					} else {
+						$data['nama_nasabah'] = '';
+					}
+					if ($tanggal_mulai != '') {
+						$data['priode'] = $tanggal_mulai . 's/d' . $tanggal_selesai;
+
+					} else {
+						$data['priode'] = 'Seluruh';
+					}
 				} else {
 					echo 'selesai';
 				}
+				$html = $this->load->view('pages/Laporan/PDF_Operasional', $data, TRUE);
+				// Memuat HTML ke mPDF
+				$this->m_pdf->pdf->WriteHTML($html);
+
+				// Menyimpan PDF ke file
+				$this->m_pdf->pdf->Output('Laporan operasional.pdf', 'I');
 
 
 			} else {
