@@ -177,6 +177,7 @@ function formatRupiah($angka)
 						<?php $total_pendapatan += $us['pendapatan'];
 						?>
 					</tr>
+					
 					<?php $no++; ?>
 				<?php endforeach; ?>
 				<tr>
