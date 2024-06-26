@@ -8,6 +8,7 @@ class C_Nasabah extends SDA_Controller
 		parent::__construct();
 		$this->load->model('User_model');
 		$this->load->model('Nasabah_model');
+		$this->load->model('Transaksi_model');
 
 		$this->requiredLogin();
 		preventAccessPengguna(
@@ -109,6 +110,15 @@ class C_Nasabah extends SDA_Controller
 	}
 	public function hapus($id)
 	{
+		$transaksi = $this->Transaksi_model->getByIdN($id);
+		if ($transaksi) {
+			$this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible" role="alert">
+		Data Nasabah gagal dihapus karena sudah ada transaksi!!
+		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+	  </div>');
+			redirect('C_Nasabah');
+		}
+
 		$this->Nasabah_model->delete($id);
 		$this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible" role="alert">
 		Data Nasabah Berhasil dihapus!!
@@ -133,7 +143,7 @@ class C_Nasabah extends SDA_Controller
 		if (!empty($data)) {
 			$i = 1;
 			foreach ($data->result_array() as $us) {
-				
+
 				$output .= '
 				<tr>
 				<td class="small">

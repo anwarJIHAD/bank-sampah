@@ -20,6 +20,10 @@
 			line-height: 1.3;
 			/* Atur sesuai kebutuhan */
 		}
+
+		.inputrow {
+			font-size: 10px !important;
+		}
 	</style>
 	<!-- Favicon -->
 	<link rel="icon" type="image/x-icon" href="<?= base_url('assets/') ?>assets/img/favicon/logo1.ico" />
@@ -259,10 +263,11 @@
 			z-index: -1;
 			/* Pastikan gambar berada di belakang konten */
 		}
+
 		.logo {
-		object-fit: cover;
-		mix-blend-mode: darken;
-	}
+			object-fit: cover;
+			mix-blend-mode: darken;
+		}
 	</style>
 </head>
 
@@ -408,7 +413,8 @@
 						<ul class="navbar-nav flex-row align-items-center ms-auto">
 							<div class="navbar-nav align-items-end">
 								<div class="nav-item d-flex align-items-end">
-									<div class="p-1 ml-2 text-white">Hallo, <?php echo $this->session->userdata('login_type') ?>
+									<div class="p-1 ml-2 text-white">Hallo,
+										<?php echo $this->session->userdata('login_type') ?>
 									</div>
 								</div>
 							</div>
@@ -433,7 +439,7 @@
 													</div>
 												</div>
 												<div class="flex-grow-1">
-													<h6 class="mb-0">John Doe</h6>
+													<h6 class="mb-0">raziq damai</h6>
 													<small class="text-muted">Admin</small>
 												</div>
 											</div>

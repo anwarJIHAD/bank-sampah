@@ -60,8 +60,8 @@
 		<!--/ Transactions -->
 		<div class="col-xl-12 col-md-12">
 			<div class="row gy-4">
-				<div class="col-sm-3">
-					<div class="card h-100">
+				<div class="col-sm-3 ">
+					<div class="card h-100 bg bg-primary">
 
 						<div class="card-body mt-mg-1">
 							<h6 class="mb-2">Jumlah Nasabah</h6>
@@ -72,7 +72,7 @@
 					</div>
 				</div>
 				<div class="col-sm-3">
-					<div class="card h-100">
+					<div class="card h-100" style="background-color:#FFD700;">
 
 						<div class="card-body mt-mg-1">
 							<h6 class="mb-2">Jumlah Kategori Sampah</h6>
@@ -83,7 +83,7 @@
 					</div>
 				</div>
 				<div class="col-sm-3">
-					<div class="card h-100">
+					<div class="card h-100" style="background-color:#ADFF2F;">
 
 						<div class="card-body mt-mg-1">
 							<h6 class="mb-2">Jumlah pelapak</h6>
@@ -93,7 +93,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-3">
+				<!-- <div class="col-sm-3">
 					<div class="card h-100">
 
 						<div class="card-body mt-mg-1">
@@ -103,7 +103,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 				<!-- <div class="col-sm-6">
 					<div class="card h-100">
 
@@ -131,10 +131,11 @@
 		</div>
 		<div class="col-xl-6 col-md-6">
 			<div class="card">
-				<div class="card-header d-flex align-items-center justify-content-between">
+				<div class="card-header d-flex align-items-center justify-content-between"
+					style="background-color:#FFB6C1;">
 					<h5 class="card-title m-0 me-2">Total Keuntungan</h5>
 				</div>
-				<div class="card-body">
+				<div class="card-body" style="height: 325px;">
 					<div class="mb-3 mt-md-3 mb-md-5">
 						<div class="d-flex align-items-center text-danger"><?php if ($debit < $kredit) {
 							echo ' Minus ' ?>
@@ -223,10 +224,10 @@
 		<!-- Four Cards -->
 
 		<!-- Weekly Overview Chart -->
-		<div class="col-xl-6 col-md-6">
+		<div class="col-xl-6 col-md-6" style="height:100px">
 			<div class="card">
-				<div class="card-header">
-					<div class="d-flex justify-content-between">
+				<div class="card-header" style="background-color:#FFEFD5; height:63px;">
+					<div class=" d-flex justify-content-between">
 						<h5 class="mb-1">Transaksi Nasabah per Bulan</h5>
 						<div class="dropdown">
 							<div class="input-group">
@@ -245,15 +246,15 @@
 						</div>
 					</div>
 				</div>
-				<div class="card-body">
-					<div id="weeklyOverviewChart"></div>
+				<div class="card-body nasabah" style="height: 310px;">
+					<div id="weeklyOverviewChart" style="height: 100%;"></div>
 
 				</div>
 			</div>
 		</div>
 		<div class="col-xl-6 col-md-6">
 			<div class="card">
-				<div class="card-header">
+				<div class="card-header" style="background-color:#FFFACD; height:63px;">
 					<div class="d-flex justify-content-between">
 						<h5 class="mb-1">Penjualan ke Pelapak per Bulan</h5>
 						<div class="dropdown">
@@ -273,9 +274,62 @@
 						</div>
 					</div>
 				</div>
-				<div class="card-body">
-					<div id="chartPelapak"></div>
+				<div class="card-body" style="height: 330px;">
+					<div id="chartPelapak" style="height: 100%;"></div>
 
+				</div>
+			</div>
+		</div>
+		<div class="col-xl-6 col-md-6">
+			<div class="card">
+				<div class="card-header d-flex align-items-center justify-content-between"
+					style="background-color:#87CEFA; height:63px;">
+					<h5 class="card-title m-0 me-2">5 History Transaski Ke- Pelapak Terakhir</h5>
+
+				</div>
+				<div class="table-responsive">
+					<table class="table">
+						<thead class="table-light">
+							<tr>
+								<th class="text-truncate">No</th>
+								<th class="text-truncate">Nama Nasabah</th>
+								<th class="text-truncate">Tanggal Transaksi</th>
+								<th class="text-truncate">Jenis Sampah</th>
+								<th class="text-truncate">Berat</th>
+								<th class="text-truncate">Pendapatan</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php $no = 1; ?>
+							<?php foreach ($top5_Pelapak as $us): ?>
+
+								<tr>
+									<td class="text-truncate"><?= $no; ?>.</td>
+									<td>
+										<div class="d-flex align-items-center">
+											<div class="avatar avatar-sm me-3">
+												<img src="<?= base_url('assets/') ?>assets/img/avatars/1.png" alt="Avatar"
+													class="rounded-circle" />
+											</div>
+											<div>
+												<h6 class="mb-0 text-truncate"><?= $us['nama']; ?></h6>
+												<small class="text-truncate"><?= $us['no_tlp']; ?></small>
+											</div>
+										</div>
+									</td>
+									<td class="text-truncate"><?= $us['tanggal_transaksi']; ?></td>
+									<td class="text-truncate"><?= $us['kategori']; ?></td>
+									<td class="text-truncate"><?= $us['berat_sampah']; ?></td>
+									<td class="text-truncate"><span
+											class="badge rounded-pill bg-label-primary me-1">RP.<?= $us['pendapatan']; ?></span>
+									</td>
+
+								</tr>
+								<?php $no++; ?>
+							<?php endforeach; ?>
+
+						</tbody>
+					</table>
 				</div>
 			</div>
 		</div>
@@ -287,7 +341,8 @@
 		<!-- 5 Transaksi Nasabah terakhir -->
 		<div class="col-12">
 			<div class="card">
-				<div class="card-header d-flex align-items-center justify-content-between">
+				<div class="card-header d-flex align-items-center justify-content-between"
+					style="background-color:#28c3d7; height:63px;">
 					<h5 class="card-title m-0 me-2">5 History Transaksi Nasabah Terakhir</h5>
 
 				</div>
@@ -339,58 +394,9 @@
 		<!--/ Data Tables -->
 
 		<!-- 5 Transaksi Pelapak terakhir -->
-		<!-- <div class="col-12">
-			<div class="card">
-				<div class="card-header d-flex align-items-center justify-content-between">
-					<h5 class="card-title m-0 me-2">5 History Transaski Ke- Pelapak Terakhir</h5>
+		<div class="col-12">
 
-				</div>
-				<div class="table-responsive">
-					<table class="table">
-						<thead class="table-light">
-							<tr>
-								<th class="text-truncate">No</th>
-								<th class="text-truncate">Nama Nasabah</th>
-								<th class="text-truncate">Tanggal Transaksi</th>
-								<th class="text-truncate">Jenis Sampah</th>
-								<th class="text-truncate">Berat</th>
-								<th class="text-truncate">Pendapatan</th>
-							</tr>
-						</thead>
-						<tbody>
-							<?php $no = 1; ?>
-							<?php foreach ($top5_Pelapak as $us): ?>
-
-								<tr>
-									<td class="text-truncate"><?= $no; ?>.</td>
-									<td>
-										<div class="d-flex align-items-center">
-											<div class="avatar avatar-sm me-3">
-												<img src="<?= base_url('assets/') ?>assets/img/avatars/1.png" alt="Avatar"
-													class="rounded-circle" />
-											</div>
-											<div>
-												<h6 class="mb-0 text-truncate"><?= $us['nama']; ?></h6>
-												<small class="text-truncate"><?= $us['no_tlp']; ?></small>
-											</div>
-										</div>
-									</td>
-									<td class="text-truncate"><?= $us['tanggal_transaksi']; ?></td>
-									<td class="text-truncate"><?= $us['kategori']; ?></td>
-									<td class="text-truncate"><?= $us['berat_sampah']; ?></td>
-									<td class="text-truncate"><span
-											class="badge rounded-pill bg-label-primary me-1">RP.<?= $us['pendapatan']; ?></span>
-									</td>
-
-								</tr>
-								<?php $no++; ?>
-							<?php endforeach; ?>
-
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</div> -->
+		</div>
 		<!--/ Data Tables -->
 	</div>
 </div>

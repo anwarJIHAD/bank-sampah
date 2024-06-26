@@ -9,7 +9,7 @@
 				</script>
 				, made with <span class="text-danger"><i class="tf-icons mdi mdi-heart"></i></span>
 				by
-				<a href="https://themeselection.com" target="_blank" class="footer-link fw-medium">ThemeSelection</a>
+				<a href="#" target="_blank" class="footer-link fw-medium">raziq damai</a>
 			</div>
 
 		</div>

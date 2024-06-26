@@ -35,7 +35,7 @@
 									<div class="form-group row col-sm-1"
 										style="background-color:#C4FAF8; padding:10px; margin-left:20px; width: 90%; border-radius: 15px;">
 
-										<label for="inputName" class="col-sm-2 col-form-label"
+										<label for="inputName" class="col-sm-2 col-form-label inputrow"
 											style="margin-right:-70px;">Jenis Sampah:</label>
 										<div class="col-sm-2">
 											<select name="jenis_sampah[]" id="Psearch" class="form-control"
@@ -53,20 +53,20 @@
 											<?= form_error('jenis_sampah[]', '<small class="text-danger pl-3">', '</small>'); ?>
 										</div>
 
-										<label for="inputdaerah" class="col-sm-2 col-form-label"
+										<label for="inputdaerah" class="col-sm-2 col-form-label inputrow"
 											style="margin-right:-70px;">Berat Sampah</label>
 										<div class="col-sm-2">
 											<input type="text" class="form-control berat" id="berat" name="berat[]"
 												placeholder="berat sampah" value="<?= set_value('berat[]'); ?>">
 											<?= form_error('berat[]', '<small class="text-danger pl-3">', '</small>'); ?>
 										</div>
-										<label for="inputdaerah" class="col-sm-2 col-form-label"
+										<label for="inputdaerah" class="col-sm-2 col-form-label inputrow"
 											style="margin-right:-70px;">Harga</label>
 										<div class="col-sm-2">
 											<input type="text" class="form-control harga" id="harga" name="harga[]"
 												placeholder="Harga">
 										</div>
-										<label for="inputdaerah" class="col-sm col-form-label"
+										<label for="inputdaerah" class="col-sm col-form-label inputrow"
 											style="margin-right:-70px;">Total</label>
 										<div class="col-sm-2">
 											<input type="text" class="form-control total_h" id="total_h"
@@ -83,7 +83,7 @@
 							<input type="text" id="total_harga" name="total_harga" id="total_harga"
 								class="form-control phone-mask" value="<?= set_value('total_harga'); ?>"
 								placeholder="Masukkan Nomor Telp" readonly />
-							<label for="basic-default-phone">Total pendapatan</label>
+							<label for="basic-default-phone ">Total pendapatan</label>
 						</div>
 
 						<button type="submit" class="btn btn-primary">Simpan</button>
@@ -173,7 +173,7 @@
 									<div class="form-group row col-sm-1"
 										style="background-color:#C4FAF8; padding:10px; margin-left:20px; width: 90%; border-radius: 15px;">
 
-										<label for="inputName" class="col-sm-2 col-form-label"
+										<label for="inputName" class="col-sm-2 col-form-label inputrow"
 											style="margin-right:-70px;">Jenis Sampah:</label>
 										<div class="col-sm-2">
 											<select name="jenis_sampah[]" id="Psearch" class="form-control"
@@ -191,20 +191,20 @@
 											<?= form_error('jenis_sampah[]', '<small class="text-danger pl-3">', '</small>'); ?>
 										</div>
 
-										<label for="inputdaerah" class="col-sm-2 col-form-label"
+										<label for="inputdaerah" class="col-sm-2 col-form-label inputrow"
 											style="margin-right:-70px;">Berat Sampah</label>
 										<div class="col-sm-2">
 											<input type="text" class="form-control berat" id="berat" name="berat[]"
 												value="<?= set_value('berat[]'); ?>" placeholder="berat sampah">
 											<?= form_error('berat[]', '<small class="text-danger pl-3">', '</small>'); ?>
 										</div>
-										<label for="inputdaerah" class="col-sm-2 col-form-label"
+										<label for="inputdaerah" class="col-sm-2 col-form-label inputrow"
 											style="margin-right:-70px;">Harga</label>
 										<div class="col-sm-2">
 											<input type="text" class="form-control harga" id="harga" name="harga[]"
 												value="<?= set_value('harga[]'); ?>" placeholder="Harga">
 										</div>
-										<label for="inputdaerah" class="col-sm col-form-label"
+										<label for="inputdaerah" class="col-sm col-form-label inputrow"
 											style="margin-right:-70px;">Total</label>
 										<div class="col-sm-2">
 											<input type="text" class="form-control total_h" id="total_h"
