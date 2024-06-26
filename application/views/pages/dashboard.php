@@ -299,7 +299,7 @@
 								<th class="text-truncate">Pendapatan</th>
 							</tr>
 						</thead>
-						<tbody>
+						<tbody id="resultMain">
 							<?php $no = 1; ?>
 							<?php foreach ($top5_Pelapak as $us): ?>
 
@@ -321,7 +321,7 @@
 									<td class="text-truncate"><?= $us['kategori']; ?></td>
 									<td class="text-truncate"><?= $us['berat_sampah']; ?></td>
 									<td class="text-truncate"><span
-											class="badge rounded-pill bg-label-primary me-1">RP.<?= $us['pendapatan']; ?></span>
+											class="badge rounded-pill bg-label-primary me-1"><?= $us['pendapatan']; ?></span>
 									</td>
 
 								</tr>
@@ -358,7 +358,7 @@
 								<th class="text-truncate">Pengeluaran</th>
 							</tr>
 						</thead>
-						<tbody>
+						<tbody id="resultMain">
 							<?php $no = 1; ?>
 							<?php foreach ($top5_nasabah as $us): ?>
 
@@ -379,7 +379,9 @@
 									<td class="text-truncate"><?= $us['tanggal_transaksi']; ?></td>
 									<td class="text-truncate"><?= $us['kategori']; ?></td>
 									<td class="text-truncate"><?= $us['berat_sampah']; ?></td>
-									<td class="text-truncate"><?= $us['pendapatan']; ?></td>
+									<td class="text-truncate"><span
+											class="badge rounded-pill bg-label-primary me-1"><?= $us['pendapatan']; ?></span>
+									</td>
 
 								</tr>
 								<?php $no++; ?>
