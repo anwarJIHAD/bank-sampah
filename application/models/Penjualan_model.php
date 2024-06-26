@@ -135,7 +135,7 @@ class Penjualan_model extends CI_Model
 		if ($query != '') {
 			$this->db->like('t.tanggal_transaksi', $query); // Pastikan pencarian dilakukan pada kolom yang tepat
 		}
-		$this->db->order_by('p.date_create', 'DESC'); // Pastikan pengurutan dilakukan pada kolom yang tepat
+		$this->db->order_by('t.date_create', 'DESC'); // Pastikan pengurutan dilakukan pada kolom yang tepat
 		$result = $this->db->get();
 
 		if (empty($result)) {

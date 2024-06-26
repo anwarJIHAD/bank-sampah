@@ -59,7 +59,9 @@ class C_Transaksi extends SDA_Controller
 			$berat = $this->input->post('berat');
 			$harga = $this->input->post('harga');
 			$pendapatan = $this->input->post('total_h');
-
+			date_default_timezone_set('Asia/Jakarta');
+			$currentDateTime = new DateTime();
+			$formattedDateTime = $currentDateTime->format('Y-m-d H:i:s');
 			foreach ($jenis as $key => $value) {
 				$data[$key]['id_nasabah'] = $id_nasabah;
 				$data[$key]['tanggal_transaksi'] = $tanggal_transaksi;
@@ -69,6 +71,7 @@ class C_Transaksi extends SDA_Controller
 				$data[$key]['pendapatan'] = $pendapatan[$key];
 				$data[$key]['jenis'] = 'nasabah';
 				$data[$key]['status'] = '1';
+				$data[$key]['date_create'] = $formattedDateTime;
 			}
 			if ($this->Transaksi_model->insert($data)) {
 				$this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible" role="alert">

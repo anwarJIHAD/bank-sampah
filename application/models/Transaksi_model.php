@@ -145,7 +145,7 @@ class Transaksi_model extends CI_Model
 			$this->db->like('n.tanggal_transaksi', $query); // Pastikan pencarian dilakukan pada kolom yang tepat
 		}
 
-		$this->db->order_by('n.date_create', 'DESC'); // Pastikan pengurutan dilakukan pada kolom yang tepat
+		$this->db->order_by('t.date_create', 'DESC'); // Pastikan pengurutan dilakukan pada kolom yang tepat
 		$result = $this->db->get();
 		if (empty($result)) {
 			return [];

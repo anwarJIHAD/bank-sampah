@@ -151,6 +151,9 @@ class C_Penjualan extends SDA_Controller
 			$berat = $this->input->post('berat');
 			$harga = $this->input->post('harga');
 			$pendapatan = $this->input->post('total_h');
+			date_default_timezone_set('Asia/Jakarta');
+			$currentDateTime = new DateTime();
+			$formattedDateTime = $currentDateTime->format('Y-m-d H:i:s');
 
 			foreach ($jenis as $key => $value) {
 				$data[$key]['id_pelapak'] = $id_pelapak;
@@ -161,6 +164,7 @@ class C_Penjualan extends SDA_Controller
 				$data[$key]['pendapatan'] = $pendapatan[$key];
 				$data[$key]['jenis'] = 'pelapak';
 				$data[$key]['status'] = '1';
+				$data[$key]['date_create'] = $formattedDateTime;
 
 			}
 			if ($this->Penjualan_model->insert($data)) {
