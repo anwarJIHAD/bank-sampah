@@ -24,21 +24,24 @@ class C_Dashboard extends SDA_Controller
 	public function index()
 	{
 		$data1 = $this->Operasional_model->fetch_data_akuntasi('');
+
 		$totalKredit = 0;
 		$totalDebit = 0;
-		foreach ($data1->result_array() as $us) {
-			$debit = 0;
-			$kredit = 0;
-			if ($us['jenis_'] == 'pelapak') {
-				$debit = $us['harga_'];
-			} else {
-				$kredit = $us['harga_'];
+		if (!empty($data1)) {
+			foreach ($data1->result_array() as $us) {
+				$debit = 0;
+				$kredit = 0;
+				if ($us['jenis_'] == 'pelapak') {
+					$debit = $us['harga_'];
+				} else {
+					$kredit = $us['harga_'];
+				}
+				$totalKredit += $kredit;
+				$totalDebit += $debit;
 			}
-			$totalKredit += $kredit;
-			$totalDebit += $debit;
 		}
 		$data['operasional'] = $this->Operasional_model->sumPendapatan();
-		
+
 		$data['debit'] = $totalDebit;
 		$data['kredit'] = $totalKredit;
 		$data['nasabah'] = $this->Dashboard_model->jumlah_nasabah();

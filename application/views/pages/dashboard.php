@@ -292,7 +292,7 @@
 						<thead class="table-light">
 							<tr>
 								<th class="text-truncate">No</th>
-								<th class="text-truncate">Nama Nasabah</th>
+								<th class="text-truncate">Nama Pelapak</th>
 								<th class="text-truncate">Tanggal Transaksi</th>
 								<th class="text-truncate">Jenis Sampah</th>
 								<th class="text-truncate">Berat</th>
