@@ -64,7 +64,7 @@
 					<div class="card h-100 bg bg-primary">
 
 						<div class="card-body mt-mg-1">
-							<h6 class="mb-2">Jumlah Nasabah</h6>
+							<h6 class="mb-2 text-center">Jumlah Nasabah</h6>
 							<div class="d-flex flex-wrap align-items-center justify-content-center p-5">
 								<h4 class="mb-0 me-2"><?= $nasabah ?></h4>
 							</div>
@@ -75,7 +75,7 @@
 					<div class="card h-100" style="background-color:#FFD700;">
 
 						<div class="card-body mt-mg-1">
-							<h6 class="mb-2">Jumlah Kategori Sampah</h6>
+							<h6 class="mb-2 text-center">Jumlah Kategori Sampah</h6>
 							<div class="d-flex flex-wrap align-items-center justify-content-center p-5">
 								<h4 class="mb-0 me-2"><?= $sampah ?></h4>
 							</div>
@@ -86,7 +86,7 @@
 					<div class="card h-100" style="background-color:#ADFF2F;">
 
 						<div class="card-body mt-mg-1">
-							<h6 class="mb-2">Jumlah pelapak</h6>
+							<h6 class="mb-2 text-center">Jumlah pelapak</h6>
 							<div class="d-flex flex-wrap align-items-center justify-content-center p-5">
 								<h4 class="mb-0 me-2"><?= $jumlah_pelapak ?></h4>
 							</div>
@@ -97,7 +97,7 @@
 					<div class="card h-100" style="background-color:#FFB6C1;">
 
 						<div class="card-body mt-mg-1">
-							<h6 class="mb-2">Jumlah Transaksi Nasabah</h6>
+							<h6 class="mb-2 text-center">Transaksi Nasabah <br>(count sampah)</h6>
 							<div class="d-flex flex-wrap align-items-center justify-content-center p-5">
 								<h4 class="mb-0 me-2"><?= $transaksi_nasabah ?></h4>
 							</div>
