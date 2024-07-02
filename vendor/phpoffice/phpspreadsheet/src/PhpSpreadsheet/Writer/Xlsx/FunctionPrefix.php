@@ -4,8 +4,8 @@ namespace PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class FunctionPrefix
 {
-    const XLFNREGEXP = '/(?:_xlfn\.)?((?:_xlws\.)?('
-            // functions added with Excel 2010
+    const XLFNREGEXP = '/(?:_xlfn\.)?((?:_xlws\.)?\b('
+        // functions added with Excel 2010
         . 'beta[.]dist'
         . '|beta[.]inv'
         . '|binom[.]dist'
@@ -125,7 +125,6 @@ class FunctionPrefix
         . '|switch'
         // functions added with Excel 2019
         . '|concat'
-        . '|countifs'
         . '|ifs'
         . '|maxifs'
         . '|minifs'

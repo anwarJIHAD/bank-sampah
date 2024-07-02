@@ -14,7 +14,7 @@
 		"php": ">=5.3.7",
 		"ext-gd": "*",
 		"phpoffice/phpspreadsheet": "*",
-		"mpdf/mpdf": "8.0.13"
+		"mpdf/mpdf": "8.0.10"
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"
