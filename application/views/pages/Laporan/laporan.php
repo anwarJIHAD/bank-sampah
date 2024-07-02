@@ -112,8 +112,10 @@
 		$("#jenis_data").change(function () {
 			var selectedValue = $(this).val();
 			if (selectedValue === 'Transaksi Nasabah' || selectedValue === 'Debit Kredit Nasabah') {
+				$("#dropdown_pelapak").hide();
 				$("#dropdown_nasabah").show();
 			} else if (selectedValue === 'Transaksi Penjualan') {
+				$("#dropdown_nasabah").hide();
 				$("#dropdown_pelapak").show();
 			} else {
 				$("#dropdown_nasabah").hide();
