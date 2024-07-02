@@ -67,7 +67,7 @@ class Laporan_model extends CI_Model
 		$result = $this->db->query($finalQuery);
 
 		if ($result !== FALSE && $result->num_rows() > 0) {
-			return $result;  // Asalnya 'return $result;', tapi lebih baik dalam bentuk array
+			return $result->result_array();  // Asalnya 'return $result;', tapi lebih baik dalam bentuk array
 		} else {
 			return [];
 		}
@@ -136,12 +136,13 @@ class Laporan_model extends CI_Model
 		$result = $this->db->query($finalQuery);
 
 		if ($result !== FALSE && $result->num_rows() > 0) {
-			return $result;  // Asalnya 'return $result;', tapi lebih baik dalam bentuk array
+			return $result->result_array();  // Asalnya 'return $result;', tapi lebih baik dalam bentuk array
 		} else {
 			return [];
 		}
 	}
-	public function fect_operasional($start, $end){
+	public function fect_operasional($start, $end)
+	{
 		$this->db->select("*");
 		$this->db->from($this->table3);
 		if ($start != '' && $end != '') {
@@ -149,7 +150,7 @@ class Laporan_model extends CI_Model
 			$this->db->where('tanggal_pengeluaran <=', $end);
 		}
 		$query = $this->db->get();
-		
+
 		$this->db->order_by('date_create', 'desc');
 		$result = $query->result_array();
 
@@ -159,6 +160,6 @@ class Laporan_model extends CI_Model
 
 		return $result;
 	}
-	
+
 
 }

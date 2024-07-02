@@ -195,10 +195,10 @@ function formatRupiah($angka)
 						<?php if ($debit == '-') { ?>
 							<td class="right-align"><?= $debit; ?></td>
 						<?php } else { ?>
-							<td class="right-align"><?= formatRupiah($debit); ?></td>
+							<td class="right-align">Rp.<?= formatRupiah($debit); ?></td>
 						<?php } ?>
 						<?php if ($kredit == '-') { ?>
-							<td class="right-align"><?= $kredit; ?></td>
+							<td class="right-align">Rp.<?= $kredit; ?></td>
 						<?php } else { ?>
 							<td class="right-align"><?= formatRupiah($kredit); ?></td>
 						<?php } ?>
@@ -208,8 +208,8 @@ function formatRupiah($angka)
 				<?php endforeach; ?>
 				<tr>
 					<td colspan="3" style="text-align: center;  font-weight: bold;">TOTAL</td>
-					<td class="right-align"><?=formatRupiah( $debit_) ?></td>
-					<td class="right-align"><?=formatRupiah( $kredit_) ?></td>
+					<td class="right-align">Rp.<?=formatRupiah( $debit_) ?></td>
+					<td class="right-align">Rp.<?=formatRupiah( $kredit_) ?></td>
 				</tr>
 			</tbody>
 		</table>

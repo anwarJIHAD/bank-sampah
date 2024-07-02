@@ -84,7 +84,7 @@ class C_Laporan extends SDA_Controller
 					$this->m_pdf->pdf->Output('Laporan Transaksi Nasabah.pdf', 'I'); // 'I' untuk output ke browser, 'D' untuk download, 'F' untuk menyimpan file
 				} else if ($jenis == "Debit Kredit Nasabah") {
 					// Tambahkan logika untuk "Debit Kredit Nasabah"
-					$data['transaksi'] = $this->Laporan_model->fech_debitkredit($nama_nasabah, $tanggal_mulai, $tanggal_selesai)->result_array();
+					$data['transaksi'] = $this->Laporan_model->fech_debitkredit($nama_nasabah, $tanggal_mulai, $tanggal_selesai);
 					// var_dump($data['transaksi']);
 					// die; 
 					if ($nama_nasabah != '') {
@@ -151,7 +151,9 @@ class C_Laporan extends SDA_Controller
 					$this->m_pdf->pdf->Output('Laporan Transaksi Penjualan ke pelapak.pdf', 'I'); // 'I' untuk output ke browser, 'D' untuk download, 'F' untuk menyimpan file
 				} else if ($jenis == "Jurnal Akuntasi") {
 					// Tambahkan logika untuk "Jurnal Akuntasi"
-					$data['transaksi'] = $this->Laporan_model->fect_akuntasi($tanggal_mulai, $tanggal_selesai)->result_array();
+					$data['transaksi'] = $this->Laporan_model->fect_akuntasi($tanggal_mulai, $tanggal_selesai);
+					// var_dump($data['transaksi']);
+					// die;
 					if ($tanggal_mulai != '') {
 						$data['priode'] = $tanggal_mulai . 's/d' . $tanggal_selesai;
 
@@ -160,7 +162,7 @@ class C_Laporan extends SDA_Controller
 					}
 					$totalKredit = 0;
 					$totalDebit = 0;
-					if ($data['transaksi']) {
+					if ($data['transaksi'] != '') {
 						foreach ($data['transaksi'] as $us) {
 							$debit = 0;
 							$kredit = 0;
@@ -174,6 +176,9 @@ class C_Laporan extends SDA_Controller
 						}
 						$data['debit_'] = $totalDebit;
 						$data['kredit_'] = $totalKredit;
+					} else {
+						$data['debit_'] = 0;
+						$data['kredit_'] = 0;
 					}
 					$html = $this->load->view('pages/Laporan/PDF_Akuntasi', $data, TRUE);
 					// Memuat HTML ke mPDF
