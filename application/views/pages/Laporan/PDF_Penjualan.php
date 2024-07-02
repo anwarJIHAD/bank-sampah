@@ -173,16 +173,16 @@ function formatRupiah($angka)
 						<td><?= $us['kategori']; ?></td>
 						<td><?= $us['harga/kg']; ?></td>
 						<td><?= $us['berat_sampah']; ?></td>
-						<td class="right-align"><?= formatRupiah($us['pendapatan']); ?></td>
+						<td class="right-align">Rp.<?= formatRupiah($us['pendapatan']); ?></td>
 						<?php $total_pendapatan += $us['pendapatan'];
 						?>
 					</tr>
-					
+
 					<?php $no++; ?>
 				<?php endforeach; ?>
 				<tr>
 					<td colspan="5" style="text-align: center;  font-weight: bold;">TOTAL</td>
-					<td class="right-align"><?= formatRupiah($total_pendapatan) ?></td>
+					<td class="right-align">Rp.<?= formatRupiah($total_pendapatan) ?></td>
 				</tr>
 			</tbody>
 		</table>

@@ -164,7 +164,7 @@ function formatRupiah($angka)
 						<td><?= $no; ?></td>
 						<td><?= $us['tanggal_pengeluaran']; ?></td>
 						<td><?= $us['keterangan']; ?></td>
-						<td class="right-align"><?= formatRupiah($us['harga']); ?></td>
+						<td class="right-align">Rp.<?= formatRupiah($us['harga']); ?></td>
 						<?php $total += $us['harga']; ?>
 
 					</tr>

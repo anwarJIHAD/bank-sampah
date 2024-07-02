@@ -145,14 +145,14 @@ function formatRupiah($angka)
 						<td><?= $us['nama']; ?></td>
 						<td><?= $us['kategori']; ?></td>
 						<td><?= $us['berat_sampah']; ?></td>
-						<td><?= formatRupiah($us['harga/kg']); ?></td>
-						<td class="right-align"><?= formatRupiah($us['pendapatan']); ?></td>
+						<td>Rp.<?= formatRupiah($us['harga/kg']); ?></td>
+						<td class="right-align">Rp.<?= formatRupiah($us['pendapatan']); ?></td>
 					</tr>
 					<?php $no++; ?>
 				<?php endforeach; ?>
 				<tr>
 					<td colspan="6" style="text-align: center;  font-weight: bold;">TOTAL TRANSAKSI</td>
-					<td class="right-align"><?= formatRupiah($total_trans) ?></td>
+					<td class="right-align">Rp.<?= formatRupiah($total_trans) ?></td>
 				</tr>
 			</tbody>
 		</table>
