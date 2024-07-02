@@ -192,15 +192,24 @@ function formatRupiah($angka)
 						<td><?= $no; ?></td>
 						<td><?= $us['tanggal_gabungan']; ?></td>
 						<td><?= $keterangan; ?></td>
-						<td class="right-align"><?= $debit ?></td>
-						<td class="right-align"><?= $kredit ?></td>
+						<?php if ($debit == '-') { ?>
+							<td class="right-align"><?= $debit; ?></td>
+						<?php } else { ?>
+							<td class="right-align"><?= formatRupiah($debit); ?></td>
+						<?php } ?>
+						<?php if ($kredit == '-') { ?>
+							<td class="right-align"><?= $kredit; ?></td>
+						<?php } else { ?>
+							<td class="right-align"><?= formatRupiah($kredit); ?></td>
+						<?php } ?>
+
 					</tr>
 					<?php $no++; ?>
 				<?php endforeach; ?>
 				<tr>
 					<td colspan="3" style="text-align: center;  font-weight: bold;">TOTAL</td>
-					<td class="right-align"><?= $debit_ ?></td>
-					<td class="right-align"><?= $kredit_ ?></td>
+					<td class="right-align"><?=formatRupiah( $debit_) ?></td>
+					<td class="right-align"><?=formatRupiah( $kredit_) ?></td>
 				</tr>
 			</tbody>
 		</table>

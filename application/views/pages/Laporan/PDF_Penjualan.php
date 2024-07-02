@@ -182,7 +182,7 @@ function formatRupiah($angka)
 				<?php endforeach; ?>
 				<tr>
 					<td colspan="5" style="text-align: center;  font-weight: bold;">TOTAL</td>
-					<td class="right-align"><?= $total_pendapatan ?></td>
+					<td class="right-align"><?= formatRupiah($total_pendapatan) ?></td>
 				</tr>
 			</tbody>
 		</table>

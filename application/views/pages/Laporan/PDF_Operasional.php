@@ -1,7 +1,7 @@
 <?php
 function formatRupiah($angka)
 {
-    return '' . number_format($angka, 0, ',', '.');
+	return '' . number_format($angka, 0, ',', '.');
 }
 ?>
 
@@ -123,7 +123,7 @@ function formatRupiah($angka)
 			margin-left: 600px;
 			margin-right: 0;
 		}
-		
+
 		.right-align {
 			text-align: right;
 		}
@@ -165,15 +165,15 @@ function formatRupiah($angka)
 						<td><?= $us['tanggal_pengeluaran']; ?></td>
 						<td><?= $us['keterangan']; ?></td>
 						<td class="right-align"><?= formatRupiah($us['harga']); ?></td>
-						<?php $total += $us['harga'];?>
-						
+						<?php $total += $us['harga']; ?>
+
 					</tr>
 					<?php $no++; ?>
 				<?php endforeach; ?>
 				<tr>
 					<td colspan="3" style="text-align: center;  font-weight: bold;">TOTAL</td>
-					<td>Rp.<?php echo $total ?></td>
-					
+					<td>Rp.<?php echo formatRupiah($total) ?></td>
+
 				</tr>
 			</tbody>
 		</table>
