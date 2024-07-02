@@ -93,8 +93,8 @@
 						</div>
 					</div>
 				</div>
-				<!-- <div class="col-sm-3">
-					<div class="card h-100">
+				<div class="col-sm-3">
+					<div class="card h-100" style="background-color:#FFB6C1;">
 
 						<div class="card-body mt-mg-1">
 							<h6 class="mb-2">Jumlah Transaksi Nasabah</h6>
@@ -103,7 +103,7 @@
 							</div>
 						</div>
 					</div>
-				</div> -->
+				</div>
 				<!-- <div class="col-sm-6">
 					<div class="card h-100">
 
