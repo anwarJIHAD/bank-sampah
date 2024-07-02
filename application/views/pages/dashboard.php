@@ -60,7 +60,7 @@
 		<!--/ Transactions -->
 		<div class="col-xl-12 col-md-12">
 			<div class="row gy-4">
-				<!-- <div class="col-sm-3 ">
+				<div class="col-sm-3 ">
 					<div class="card h-100 bg bg-primary">
 
 						<div class="card-body mt-mg-1">
@@ -103,7 +103,7 @@
 							</div>
 						</div>
 					</div>
-				</div> -->
+				</div>
 				<!-- <div class="col-sm-6">
 					<div class="card h-100">
 
@@ -280,7 +280,7 @@
 				</div>
 			</div>
 		</div>
-		<!-- <div class="col-xl-6 col-md-6">
+		<div class="col-xl-6 col-md-6">
 			<div class="card">
 				<div class="card-header d-flex align-items-center justify-content-between"
 					style="background-color:#87CEFA; height:63px;">
@@ -332,7 +332,7 @@
 					</table>
 				</div>
 			</div>
-		</div> -->
+		</div>
 
 		<!--/ Weekly Overview Chart -->
 
