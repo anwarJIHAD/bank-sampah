@@ -81,7 +81,7 @@
         },
         yaxis: {
           min: 0,
-          max: 20,
+          max: 70,
           show: true,
           tickAmount: 4,
           labels: {
@@ -260,7 +260,7 @@
           },
           yaxis: {
             min: 0,
-            max: 20,
+            max: 70,
             show: true,
             tickAmount: 4,
             labels: {
@@ -415,8 +415,8 @@
               },
               {
                 from: 11,
-                to: 20,
-                color: chartBgColor
+                to: 40,
+                color: config.colors.primary
               },
             ]
           }
@@ -604,8 +604,8 @@
                 },
                 {
                   from: 11,
-                  to: 20,
-                  color: chartBgColor
+                  to: 40,
+                  color: config.colors.primary
                 },
               ]
             }
