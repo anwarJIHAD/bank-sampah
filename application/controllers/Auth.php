@@ -10,7 +10,7 @@ class Auth extends CI_Controller
 	function index()
 	{
 		if ($this->session->userdata('is_login')) {
-			redirect('Dashboard');
+			redirect('C_Dashboard');
 		}
 		$this->form_validation->set_rules('username', 'username', 'trim|required', [
 			'required' => 'username Wajib di isi'
@@ -97,7 +97,7 @@ class Auth extends CI_Controller
 							]
 						];
 						$this->session->set_userdata($data);
-						redirect('dashboard_admin');
+						redirect('auth');
 					} else {
 						$this->session->set_flashdata('message', '<div class="alert alert-danger" role="elert">
                     Akun Tidak Aktif</div>');
