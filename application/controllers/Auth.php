@@ -25,42 +25,42 @@ class Auth extends CI_Controller
 		}
 	}
 
-	function registrasi()
-	{
-		if ($this->session->userdata('NIP')) {
-			redirect('auth/registrasi');
-		}
-		$this->form_validation->set_rules('nama', 'nama', 'required|trim');
-		$this->form_validation->set_rules('NIP', 'NIP', 'required|trim|is_unique[user.NIP]', [
-			'is_unique' => 'NIP ini sudah terdaftar!',
-			'required' => 'NIP Wajib di isi'
-		]);
-		$this->form_validation->set_rules(
-			'password1',
-			'Password',
-			'required|trim|min_length[5]|matches[password2]',
-			[
-				'matches' => 'Password Tidak Sama',
-				'min_length' => 'Password Terlalu Pendek',
-				'required' => 'Password harus diisi'
-			]
-		);
-		$this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]');
-		if ($this->form_validation->run() == false) {
-			$this->load->view('auth/registrasi');
-		} else {
-			$data = [
-				'nama' => htmlspecialchars($this->input->post('nama', true)),
-				'NIP' => htmlspecialchars($this->input->post('NIP', true)),
-				'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
-				'gambar' => 'default.png',
-				'role' => "User",
-			];
-			$this->userrole->insert($data);
-			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Selamat!Akunmu telah berhasil terdaftar, Silahkan Login! </div>');
-			redirect('auth');
-		}
-	}
+	// function registrasi()
+	// {
+	// 	if ($this->session->userdata('NIP')) {
+	// 		redirect('auth/registrasi');
+	// 	}
+	// 	$this->form_validation->set_rules('nama', 'nama', 'required|trim');
+	// 	$this->form_validation->set_rules('NIP', 'NIP', 'required|trim|is_unique[user.NIP]', [
+	// 		'is_unique' => 'NIP ini sudah terdaftar!',
+	// 		'required' => 'NIP Wajib di isi'
+	// 	]);
+	// 	$this->form_validation->set_rules(
+	// 		'password1',
+	// 		'Password',
+	// 		'required|trim|min_length[5]|matches[password2]',
+	// 		[
+	// 			'matches' => 'Password Tidak Sama',
+	// 			'min_length' => 'Password Terlalu Pendek',
+	// 			'required' => 'Password harus diisi'
+	// 		]
+	// 	);
+	// 	$this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]');
+	// 	if ($this->form_validation->run() == false) {
+	// 		$this->load->view('auth/registrasi');
+	// 	} else {
+	// 		$data = [
+	// 			'nama' => htmlspecialchars($this->input->post('nama', true)),
+	// 			'NIP' => htmlspecialchars($this->input->post('NIP', true)),
+	// 			'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
+	// 			'gambar' => 'default.png',
+	// 			'role' => "User",
+	// 		];
+	// 		$this->userrole->insert($data);
+	// 		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Selamat!Akunmu telah berhasil terdaftar, Silahkan Login! </div>');
+	// 		redirect('auth');
+	// 	}
+	// }
 
 	// public function cek_regis()
 	// {
