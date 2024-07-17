@@ -160,8 +160,8 @@ function formatRupiah($angka)
 		<div class="signature-container">
 			<p>Atas Nama</p>
 
-			<img src="<?= base_url('assets/') ?>assets/img/ttd/ttd2.jpg" alt="Tanda Tangan" style="width:70px;">
-			<p>Prof. Dr Sarah Azizah, S.Tr. Kom</p>
+			<img src="<?= base_url('assets/') ?>assets/img/ttd/ttd_pimpinan1.jpeg" alt="Tanda Tangan" style="width:70px;">
+			<p>Azniwati</p>
 
 		</div>
 	</div>
