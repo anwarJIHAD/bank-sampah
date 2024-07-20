@@ -216,7 +216,7 @@ function formatRupiah($angka)
 		<div class="signature-container">
 			<p>Atas Nama</p>
 
-			<img src="<?= base_url('assets/') ?>assets/img/ttd/ttd_pimpinan1.jpg" alt="Tanda Tangan"
+			<img src="<?= base_url('assets/') ?>assets/img/ttd/ttd_pimpinan1.jpeg" alt="Tanda Tangan"
 				style="width:70px;">
 			<p>Azniwati</p>
 

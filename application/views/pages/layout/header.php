@@ -310,7 +310,13 @@
 							<div data-i18n="Icons">Nasabah</div>
 						</a>
 					</li>
-
+					<!-- Kategori Sampah -->
+					<li class="menu-item Open">
+						<a href="<?= base_url('C_Sampah/') ?>" class="menu-link">
+							<i class="menu-icon tf-icons mdi mdi-delete-variant"></i>
+							<div data-i18n="Icons">Kategori Sampah</div>
+						</a>
+					</li>
 					<!-- Transaksi Nasabah -->
 					<li class="menu-item Open">
 						<a href="<?= base_url('C_Transaksi/') ?>" class="menu-link">
@@ -327,13 +333,7 @@
 						</a>
 					</li>
 
-					<!-- Kategori Sampah -->
-					<li class="menu-item Open">
-						<a href="<?= base_url('C_Sampah/') ?>" class="menu-link">
-							<i class="menu-icon tf-icons mdi mdi-delete-variant"></i>
-							<div data-i18n="Icons">Kategori Sampah</div>
-						</a>
-					</li>
+					
 
 					<!-- Operasional -->
 					<li class="menu-item Open">

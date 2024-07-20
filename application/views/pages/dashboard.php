@@ -295,7 +295,7 @@
 								<th class="text-truncate">Nama Pelapak</th>
 								<th class="text-truncate">Tanggal Transaksi</th>
 								<th class="text-truncate">Jenis Sampah</th>
-								<th class="text-truncate">Berat</th>
+								<th class="text-truncate">Berat(kg)</th>
 								<th class="text-truncate">Pendapatan</th>
 							</tr>
 						</thead>
@@ -354,7 +354,7 @@
 								<th class="text-truncate">Nama Nasabah</th>
 								<th class="text-truncate">Tanggal Transaksi</th>
 								<th class="text-truncate">Jenis Sampah</th>
-								<th class="text-truncate">Berat</th>
+								<th class="text-truncate">Berat(kg)</th>
 								<th class="text-truncate">Pengeluaran</th>
 							</tr>
 						</thead>
